@@ -27,7 +27,7 @@ router.post('/login', async (req, res) => {
         } else {
             req.session.save(() => {
                 req.session.user_id = userData.id;
-                req.session.logged_in = true;
+                req.session.loggedIn = true;
                 res.json({ user: userData, message: `Welcome Back! ~${userData.username}~` })
             });
         }
@@ -81,7 +81,7 @@ router.get('/:username', auth, async (req, res) => {
 
 //logout route
 router.post('/logout', (req, res) => {
-    if (req.session.logged_in) { // confirming if actuallu loggedIN, 
+    if (req.session.loggedIn) { // confirming if actuallu loggedIN, 
         req.session.destroy(() => { //remove the current loggedIn session
             res.status(204).end();
         });
