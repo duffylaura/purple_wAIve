@@ -13,22 +13,28 @@ Post.init({
         type: DataTypes.STRING,
         allowNull: false,
       },
+      img_url:{
+        type:DataTypes.STRING,
+        allowNull: false,
+    },
+    
       user_id: {
         type: DataTypes.INTEGER,
         references: {
           model: "user",
           key: "id",
         },
-
+    },
         tag_id: {
             type: DataTypes.INTEGER,
             references: {
               model: "tag",
               key: "id",
             },
-            
-    }}
+           
+    },
 },
+
 {
     sequelize,
     freezeTableName: true,
