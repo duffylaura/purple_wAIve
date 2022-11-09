@@ -39,11 +39,7 @@ router.get("/:id", (req, res) => {
         },
         {
           model: Tag,
-          attributes: ["id", "tag_title"],
-          include: {
-            model: User,
-            attributes: ["username"],
-          },
+          attributes: ["id", "tag_title"],         
         },
       ],
     })
@@ -54,6 +50,20 @@ router.get("/:id", (req, res) => {
         }
         res.json(PostData);
       })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+//   post router
+router.post("/", withAuth, (req, res) => {
+       Post.create({
+      title: req.body.title,
+      img_url: req.body.img_url,
+      user_id: req.session.user_id,
+    })
+      .then((PostData) => res.json(PostData))
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
