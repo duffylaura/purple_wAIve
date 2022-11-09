@@ -2,19 +2,34 @@ const { Post } = require("../models");
 
 const postSeed = [
   {
-    title: "John Doe",
-    img_url: "johndoe@gmail.com",
-    body: "password",
+    title: "californication",
+    img_url: "https://via.placeholder.com/512",
+    body: "this how i feel about this song",
+    user_id: 1,
   },
   {
-    img_url: "Jane Doe",
-    email: "janedoe@gmail.com",
-    password: "password123",
+    title: "californication",
+    img_url: "https://via.placeholder.com/512",
+    body: "this how i feel about this song",
+    user_id: 2,
   },
   {
-    username: "Mike Smith",
-    email: "mikesmith@gmail.com",
-    password: "password321",
+    title: "californication",
+    img_url: "https://via.placeholder.com/512",
+    body: "this how i feel about this song",
+    user_id: 3,
+  },
+  {
+    title: "californication",
+    img_url: "https://via.placeholder.com/512",
+    body: "this how i feel about this song",
+    user_id: 2,
+  },
+  {
+    title: "californication",
+    img_url: "https://via.placeholder.com/512",
+    body: "this how i feel about this song",
+    user_id: 3,
   },
 ];
 
