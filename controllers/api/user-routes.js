@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const bcrypt = require('bcrypt');
+const { auth } = require('../../utils/auth');
 const Post = require('../../models/post');
 const Tag = require('../../models/tag');
 
@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
         res.status(400).json(err);
     }
 });
-
+//signup
 router.post('/signup', async (req, res) => {
     try {
         const nUser = {
@@ -68,6 +68,12 @@ router.get('/:username', auth, async (req, res) => {
             where: { username: selectedUserName }
         });
 
+        const displayUserPosts = userData.get({ plain: true });
+        console.log(displayUserPosts);
+        res.render('otherprofile', {
+            displayUserPosts
+        });
+        //catach error as usual
     } catch (err) {
         res.status(500).json(err);
     }
