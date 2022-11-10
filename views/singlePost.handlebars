@@ -1,0 +1,29 @@
+<!-- Two tiles next to each other, one is title and image other is words and tags -->
+
+    <!-- title and image --> 
+    <div class="tile is-4 is-vertical is-parent">
+        <div class="tile is-child box">
+            <p> {{post.title}}</p>
+            <img src="{{post.img_url}}" alt="{{post.title}}" />
+            <p>created by
+                {{post.user.username}}
+                on
+                {{format_date post.created_at}}</p>
+        </div>
+    </div>
+
+
+    <!-- words and tags -->
+    <div class="tile is-4 is-vertical is-parent">
+        <div class="tile is-child box">
+            <p> {{post.body}}</p>
+        </div>
+
+        <div class="tile is-child box">
+            {{#each Tag as |Tag|}}
+            <input class="input" type="tags" value = "{{Tag.title}}">
+            {{/each}}
+        </div>
+
+    </div>
+
