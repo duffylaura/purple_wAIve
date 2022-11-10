@@ -39,7 +39,7 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: ["id", "title", "img_url", "body","created_at"],
+      attributes: ["id", "title", "img_url", "body", "created_at"],
       include: [
         {
           model: User,
@@ -54,10 +54,10 @@ router.get("/:id", async (req, res) => {
     if (!PostData) {
       res.status(404).json({ message: "No post found with this id" });
       return;
-    } 
-    const post = PostData.get({plain: true});
+    }
+    const post = PostData.get({ plain: true });
     console.log(post)
-    res.render("singlePost", {post});
+    res.render("singlePost", { post });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -87,7 +87,8 @@ router.post("/", auth, async (req, res) => {
       img_url: image_url,
       user_id: req.session.user_id,
       body: req.body.body,
-    });
+    })
+
     res.json(PostData);
   } catch (err) {
     console.log(err);
