@@ -1,0 +1,19 @@
+<div class="feed">
+     {{#if loggedIn}}
+     
+      <a href="/homepage.handlebars" id="logoutBtn" class="button is-warning">
+        Log Out
+
+      </a>
+    {{else}}
+      <a class="button is-success" href="/login">
+        <strong>Log In</strong>
+      </a>
+      <a class="button is-link" href="/signup">
+        <strong>Sign Up</strong>
+      </a>
+    {{/if}}
+  </div>
+</div>
+
+
