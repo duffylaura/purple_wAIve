@@ -17,14 +17,19 @@ router.get("/", async (req, res) => {
     const post = allPostData.map((post) => post.get({ plain: true }));
     console.log(post, "test");
     console.log(req.session);
-    res.render("homepage", {
-      post1: post[0],
-      post2: post[1],
-      post3: post[2],
-      post4: post[3],
-      post5: post[4],
-      loggedIn: req.session.loggedIn,
-    });
+    //if logged in. render homepage with all post (array)
+    if (req.session.leggedIn) {
+      res.render("homepage", { post });
+    } else { //if not logged in, render homepage with parsed out 5 post
+      res.render("homepage", {
+        post1: post[0],
+        post2: post[1],
+        post3: post[2],
+        post4: post[3],
+        post5: post[4],
+        loggedIn: req.session.loggedIn,
+      })
+    };
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
