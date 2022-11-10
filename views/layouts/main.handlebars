@@ -13,80 +13,25 @@
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="#">
-                <h1> purple wAIve</h1>
-            </a>
-
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
+            <a class="navbar-item" href="#"> <h1 class="title is-3"> purple wAIve</h1> </a>
+            <a class="navbar-item" href="/"> Home </a>
+            <a class="navbar-item" href="/profile"> Profile </a>
+            <a class="navbar-item" href="/create"> Create </a>  
         </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="/">
-                    Home
-                </a>
-               {{#if loggedIn}}
-                <a class="navbar-item" href="/profile">
-                    Profile
-                </a>
-
-                <a class="navbar-item" href="/create">
-                  Create
-                </a>
-                  
-            </div>
-        </div>
-
+  
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                   
-                    <a href="/" id="logoutBtn"class="button is-warning">
-                        Log Out
-                    </a>
-                    {{else}}
-                    <a  class="button is-success" href="/login">
-                        <strong>Log In</strong>
-                    </a>
-                    <a  class="button is-link" href="/signup">
-                        <strong>Sign Up</strong>
-                    </a>
-                    {{/if}}
+                  <div class= "justify-content:flex-end">
+                    <a href="/" id="logoutBtn"class="button is-link is-light"> Log Out </a>
+                    <a  class="button is-link is-light" href="/login"> Log In </a>
+                    <a  class="button is-link is-light" href="/signup"> Sign Up </a>
+                  </div>
                 </div>
             </div>
-        </div>
-        </div>
-    </nav>
-
-     <section class="hero">
-      <div class="hero-body">
-        <p class="title">
-          Purple Wave
-        </p>
-        <p class="subtitle">
-          A Community of Audiophiles, Artists, and Writers
-        </p>
+          </div>
       </div>
-    </section>
-
-
-
-
-    {{!-- <nav>
-      <!-- Conditionally render login or logout links -->
-      {{#if loggedIn}}
-        <a href="/profile">My Profile</a>
-        |
-        <button class="button is-link is-light">Logout</button>
-      {{else}}
-        <a href="/login">Login</a>
-      {{/if}}
-    </nav> --}}
+  </nav>
 
     <main>
       <!-- Render the sub layout of the homepage -->
