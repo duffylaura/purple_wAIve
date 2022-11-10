@@ -1,0 +1,58 @@
+<!-- Two tiles next to each other, one is title and image other is words and tags -->
+<form>
+  <div class="px-6">
+
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical">
+        <!-- Took out is-8 -->
+
+        <div class="tile">
+
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-link is-light">
+
+              <p class="title is-3"><textarea
+                  id="edit-title"
+                  class="textarea"
+                >{{post.title}}</textarea></p>
+              <img src="{{post.img_url}}" alt="{{post.title}}" />
+              <br />
+              <p>created by
+                {{post.user.username}}
+                on
+                {{format_date post.created_at}}</p>
+              <div class="buttons">
+                <button id="edit-button" class="button is-link">Edit</button>
+                <button
+                  id="delete-button"
+                  class="button is-danger"
+                >Delete</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification is-link is-light">
+              <p class="title is-5">
+                <textarea
+                  id="edit-body"
+                  class="textarea"
+                >{{post.body}}</textarea></p>
+            </article>
+            <article class="title is-child notification is-link is-light">
+
+              {{#each post.tags as |Tag|}}
+                <span class="tag is-link is-light">#{{Tag.tag_title}}</span>
+              {{/each}}
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</form>
+
+<script src="/js/edit-post.js"></script>
+<script src="/js/delete-post.js"></script>

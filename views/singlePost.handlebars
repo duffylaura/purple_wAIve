@@ -1,32 +1,38 @@
 <!-- Two tiles next to each other, one is title and image other is words and tags -->
 
+<div class="px-6">
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical">
+      <!-- Took out is-8 -->
+      <div class="tile">
 
-<div class = "px-6">
-    <div class = "tile is-ancestor">
-        <div class = "tile is-vertical"> <!-- Took out is-8 --> 
-            <div class = "tile">
-
-                <div class = "tile is-parent">
-                    <article class = "tile is-child notification is-link is-light">
-                        <p class = "title is-3"> {{post.title}}</p>
-                        <img src="{{post.img_url}}" alt="{{post.title}}" /> <br>
-                        <p>created by {{post.user.username}} on {{format_date post.created_at}}</p>    
-                    </article>
-                </div>
-           
-                <div class = "tile is-parent is-vertical"> 
-                    <article class = "tile is-child notification is-link is-light">
-                        <p class = "title is-5"> {{post.body}}</p>
-                    </article>
-                    <article class = "title is-child notification is-link is-light">
-                        {{#each post.tags as |Tag|}}
-                        <span class="tag is-link is-light">#{{Tag.tag_title}}</span>
-                        {{/each}}  
-                    </article>
-                </div>
-
-            </div>
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-link is-light">
+            <p class="title is-3"> {{post.title}}</p>
+            <img src="{{post.img_url}}" alt="{{post.title}}" />
+            <br />
+            <p>created by
+              {{post.user.username}}
+              on
+              {{format_date post.created_at}}</p>
+            {{#if loggedIn}}
+              <button href="/edit-post" class="button is-link">edit post</button>
+            {{/if}}
+          </article>
         </div>
-    </div>
-</div>
 
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child notification is-link is-light">
+            <p class="title is-5"> {{post.body}}</p>
+          </article>
+          <article class="title is-child notification is-link is-light">
+            {{#each post.tags as |Tag|}}
+              <span class="tag is-link is-light">#{{Tag.tag_title}}</span>
+            {{/each}}
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
