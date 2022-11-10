@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const { max } = require("./user");
 
 class Post extends Model { }
 Post.init(
@@ -15,7 +16,7 @@ Post.init(
             allowNull: false,
         },
         img_url: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(2000),
             allowNull: false,
         },
         body: {

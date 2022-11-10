@@ -2,6 +2,14 @@ const router = require("express").Router();
 const { Post, User, Tag } = require("../../models");
 const sequelize = require("../../config/connection");
 const auth = require("../../utils/auth");
+// openai api for generation;
+const { Configuration, Openai, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+})
+const openai = new OpenAIApi(configuration);
+
+
 
 router.get("/", async (req, res) => {
   console.log("======================");
@@ -57,9 +65,24 @@ router.get("/:id", async (req, res) => {
 //   post router
 router.post("/", auth, async (req, res) => {
   try {
-    const PostData = Post.create({
+    // openAI, working commenting out until we need it again//
+    // const promptTags = req.body.tags;
+    // const promptStyle = req.body.style;
+    // const response = await openai.createImage({
+    //   //prompt, we are going to have to parse in the user inputted tag, add Album, and the style
+    //   prompt: "`ferret riding a unicycle with a cat on the backseat`",
+    //   //how many photo alloted
+    //   n: 1,
+    //   //set size
+    //   size: "512x512",
+    // }) // set index, since we are ever only generating one
+    // console.log(response);
+    // const image_url = response.data.data[0].url;
+
+    //creating post content to store in db
+    const PostData = await Post.create({
       title: req.body.title,
-      img_url: req.body.img_url,
+      img_url: image_url,
       user_id: req.session.user_id,
       body: req.body.body,
     });
@@ -67,7 +90,7 @@ router.post("/", auth, async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
-  }
+  };
 });
 
 //   update post

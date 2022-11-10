@@ -27,6 +27,8 @@
     "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
     "mysql2": "^2.1.0",
-    "sequelize": "^6.3.5"
+    "openai": "^3.1.0",
+    "sequelize": "^6.3.5",
+    "tiny-shortener": "^2.2.3"
   }
 }
