@@ -1,6 +1,61 @@
 <div class="feed">
      {{#if loggedIn}}
-     
+         <!-- Post #1 -->
+    <div class="tile is-4 is-vertical is-parent">
+        <div class="tile is-child box">
+            <p> {{post1.title}}</p>
+            <img src="{{post1.img_url}}" alt="{{post1.title}}" />
+            <p>created by
+                {{post1.user.username}}
+                on
+                {{format_date post1.created_at}}</p>
+        </div>
+    </div>
+    <!-- Post #2 -->
+    <div class="tile is-4 is-vertical is-parent">
+        <div class="tile is-child box">
+            <p> {{post2.title}}</p>
+            <img src="{{post2.img_url}}" alt="{{post2.title}}" />
+            <p>created by
+                {{post2.user.username}}
+                on
+                {{format_date post2.created_at}}</p>
+        </div>
+    </div>
+    <!-- Post #3 -->
+    <div class="tile is-4 is-vertical is-parent">
+        <div class="tile is-child box">
+            <p> {{post3.title}}</p>
+            <img src="{{post3.img_url}}" alt="{{post3.title}}" />
+            <p>created by
+                {{post3.user.username}}
+                on
+                {{format_date post3.created_at}}</p>
+        </div>
+    </div>
+    <!-- Post #4 -->
+    <div class="tile is-4 is-vertical is-parent">
+        <div class="tile is-child box">
+            <p> {{post4.title}}</p>
+            <img src="{{post4.img_url}}" alt="{{post4.title}}" />
+            <p>created by
+                {{post4.user.username}}
+                on
+                {{format_date post4.created_at}}</p>
+        </div>
+    </div>
+    <!-- Post #5 -->
+    <div class="tile is-4 is-vertical is-parent">
+        <div class="tile is-child box">
+            <p> {{post5.title}}</p>
+            <img src="{{post5.img_url}}" alt="{{post5.title}}" />
+            <p>created by
+                {{post5.user.username}}
+                on
+                {{format_date post5.created_at}}</p>
+        </div>
+    </div>
+</div>
       <a href="/homepage.handlebars" id="logoutBtn" class="button is-warning">
         Log Out
 
