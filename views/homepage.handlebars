@@ -6,12 +6,26 @@
             </figure>
         </div>
     </div>
-
+{{#if loggedIn}}
+{{#each post}}
     <!-- Post #1 -->
     <div class="tile is-4 is-vertical is-parent">
         <div class="tile is-child box">
+            <p> {{post.title}}</p>
+            <img src="{{post.img_url}}" alt="{{post.title}}" />
+            <p>created by
+                {{post.user.username}}
+                on
+                {{format_date post1.created_at}}</p>
+        </div>
+    </div>
+    {{/each}}
+    {{else}}
+
+     <div class="tile is-4 is-vertical is-parent">
+        <div class="tile is-child box">
             <p> {{post1.title}}</p>
-            <img src="{{post1.img_url}}" alt="{{post1.title}}" />
+            <img src="{{post1.img_url}}" alt="{{post.title}}" />
             <p>created by
                 {{post1.user.username}}
                 on
@@ -21,7 +35,7 @@
     <!-- Post #2 -->
     <div class="tile is-4 is-vertical is-parent">
         <div class="tile is-child box">
-            <p> {{post2.title}}</p>
+            <p> {{post.title}}</p>
             <img src="{{post2.img_url}}" alt="{{post2.title}}" />
             <p>created by
                 {{post2.user.username}}
@@ -63,3 +77,4 @@
         </div>
     </div>
 </div>
+{{/if}}
