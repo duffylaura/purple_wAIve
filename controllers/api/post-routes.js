@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User, Tag } = require("../../models");
+const { Post, User, Style } = require("../../models");
 const sequelize = require("../../config/connection");
 const auth = require("../../utils/auth");
 // openai api for generation;
@@ -15,15 +15,15 @@ router.get("/", async (req, res) => {
   console.log("======================");
   try {
     const PostData = await Post.findAll({
-      attributes: ["id", "title", "img_url", "body"],
+      attributes: ["id", "title", "img_url", "body", "keywords"],
       include: [
         {
           model: User,
           attributes: ["username"],
         },
         {
-          model: Tag,
-          attributes: ["id", "tag_title"],
+          model: Style,
+          attributes: ["id", "style_type"],
         },
       ],
     });
@@ -39,15 +39,15 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: ["id", "title", "img_url", "body", "created_at"],
+      attributes: ["id", "title", "img_url", "body", "created_at", "keywords"],
       include: [
         {
           model: User,
           attributes: ["username"],
         },
         {
-          model: Tag,
-          attributes: ["id", "tag_title"],
+          model: Style,
+          attributes: ["id", "style_type"],
         },
       ],
     });
