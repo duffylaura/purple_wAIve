@@ -5,6 +5,8 @@ const express = require("express");
 //instanciate and new instance of express-session and require it
 const session = require("express-session");
 
+const exphbs = require("express-handlebars");
+
 // Create a new sequelize store using the express-session package so we can store session data so user can stay logged
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 

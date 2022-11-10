@@ -4,10 +4,10 @@ const auth = require("../utils/auth");
 
 //get all posts by all users for homepage and render to homepage hbs
 
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const allPostData = await Post.findAll({
-      attributes: ["id", "title", "img_url", "created_at", "user_id", "tag_id"],
+      attributes: ["id", "title", "img_url", "created_at", "user_id"],
       include: {
         model: User,
         attributes: ["id", "username"],
@@ -17,7 +17,11 @@ router.get("/", auth, async (req, res) => {
     const post = allPostData.map((post) => post.get({ plain: true }));
     console.log(post, "test");
     res.render("homepage", {
-      post,
+      post1: post[0],
+      post2: post[1],
+      post3: post[2],
+      post4: post[3],
+      post5: post[4],
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -44,7 +48,7 @@ router.get("/post/:id", auth, async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: ["id", "title", "img_url", "created_at", "user_id", "tag_id"],
+      attributes: ["id", "title", "img_url", "created_at", "user_id"],
       include: [
         {
           model: User,

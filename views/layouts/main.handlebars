@@ -1,39 +1,42 @@
-<!DOCTYPE html>
-
-<html lang = "en">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Purple Wave</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
   </head>
 
-<body>
+  <body>
 
-<section class="hero">
-  <div class="hero-body">
-    <p class="title">
-      Purple Wave
-    </p>
-    <p class="subtitle">
-      A Community of Audiophiles, Artists, and Writers
-    </p>
-  </div>
-</section>
+    <section class="hero">
+      <div class="hero-body">
+        <p class="title">
+          Purple Wave
+        </p>
+        <p class="subtitle">
+          A Community of Audiophiles, Artists, and Writers
+        </p>
+      </div>
+    </section>
 
-<nav>
-    <!-- Conditionally render login or logout links -->
-    {{#if loggedIn}}
-    <a href = "/profile">My Profile</a> |
-    <button class = "button is-link is-light">Logout</button>
-    {{else}}
-    <a href="/login">Login</a>
-</nav>
+    <nav>
+      <!-- Conditionally render login or logout links -->
+      {{#if loggedIn}}
+        <a href="/profile">My Profile</a>
+        |
+        <button class="button is-link is-light">Logout</button>
+      {{else}}
+        <a href="/login">Login</a>
+      {{/if}}
+    </nav>
 
-<main>
+    <main>
       <!-- Render the sub layout of the homepage -->
-    {{{ body }}}
-</main>
+      {{{body}}}
+    </main>
 
-</body>
+  </body>
 </html>
