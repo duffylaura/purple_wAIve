@@ -1,0 +1,38 @@
+
+<section class="hero is-primary">
+      <div class="hero-body">
+        <p class="title">
+          @{{user.username}}
+        </p>
+       <img class="image is-512x512"src="./css/logo-clear-background.png" alt="purple wAIve">
+      </div>
+    </section>
+{{#if post.length}}
+    {{#each post}}
+    <div class="tile is-ancestor">
+      <div class="tile is-12">
+        <article class="tile is-child box">
+          <p class="title">Song title</p>
+          <figure class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/640x480.png">
+          </figure>
+        </article>
+      <div class="tile">
+        <div class="tile is-child box">
+          <div class="block"><p>{{post.body}}</p></div>
+          <div class="block">
+          <p>{{post.body}} </p></div>
+          <div class="block">
+          <p><strong>by {{user.username }}on {{format_date created_at}}</strong></p></div>
+          {{/each}}
+          {{#each styleTag}}
+          <div class="tags are-normal">
+            <span class="tag is-normal">{{styleTag.style}}</span>
+          </div>
+           {{/each}}
+         
+          
+       {{else}}
+        <h1>You have no Posts!</h1>
+         </section>
+           {{/if}}
