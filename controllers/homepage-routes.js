@@ -79,4 +79,16 @@ router.get("/post/:id", auth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//show create post
+
+router.get("/create", auth, (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+    return;
+  }
+  res.render("createPost");
+});
+
+
 module.exports = router;
