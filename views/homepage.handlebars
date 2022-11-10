@@ -22,7 +22,8 @@
     {{/each}}
     {{else}}
 
-    <div class="tile is-4 is-vertical is-parent">
+    <div class = "column">
+    <div class="tile is-4 is-parent">
         <div class="tile is-child box">
             <p> {{post1.title}}</p>
             <img src="{{post1.img_url}}" alt="{{post1.title}}" />
@@ -54,6 +55,9 @@
                 {{format_date post3.created_at}}</p>
         </div>
     </div>
+    </div>
+
+    <div class = "column">
     <!-- Post #4 -->
     <div class="tile is-4 is-vertical is-parent">
         <div class="tile is-child box">
@@ -75,6 +79,7 @@
                 on
                 {{format_date post5.created_at}}</p>
         </div>
+    </div>
     </div>
 </div>
 {{/if}}
