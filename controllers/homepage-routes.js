@@ -18,8 +18,8 @@ router.get("/", async (req, res) => {
     console.log(post, "test");
     console.log(req.session);
     res.render("homepage", {
-      post1: post[8],
-      post2: post[10],
+      post1: post[0],
+      post2: post[1],
       post3: post[2],
       post4: post[3],
       post5: post[4],
