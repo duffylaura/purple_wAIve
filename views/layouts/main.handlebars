@@ -1,46 +1,50 @@
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Purple Waive</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Purple Waive</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+</head>
+
+<body>
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="#"> <h1 class="title is-3"> purple wAIve</h1> </a>
-            <a class="navbar-item" href="/"> Home </a>
-            <a class="navbar-item" href="/profile"> Profile </a>
-            <a class="navbar-item" href="/create"> Create </a>  
-        </div>
-  
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                  <div class= "justify-content:flex-end">
-                    <a href="/" id="logoutBtn"class="button is-link is-light"> Log Out </a>
-                    <a  class="button is-link is-light" href="/login"> Log In </a>
-                    <a  class="button is-link is-light" href="/signup"> Sign Up </a>
-                  </div>
-                </div>
-            </div>
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <h1 class="title is-3"> purple wAIve</h1>
+      </a>
+      <a class="navbar-item" href="/"> Home </a>
+      <a class="navbar-item" href="/profile"> Profile </a>
+      <a class="navbar-item" href="/create"> Create </a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <div class="justify-content:flex-end">
+            {{#if loggedIn}}
+            <a href="/" id="logoutBtn" class="button is-link is-light"> Log Out </a>
+            {{else}}
+            <a class="button is-link is-light" href="/login"> Log In </a>
+            <a class="button is-link is-light" href="/signup"> Sign Up </a>
+            {{/if}}
           </div>
+        </div>
       </div>
+    </div>
+    </div>
   </nav>
 
-    <main>
-      <!-- Render the sub layout of the homepage -->
-      {{{body}}}
-    </main>
+  <main>
+    <!-- Render the sub layout of the homepage -->
+    {{{body}}}
+  </main>
 
-    {{#if loggedIn}}
-      <script src="/js/logout.js"></script>
-    {{/if}}
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 
-  </body>
+</body>
+
 </html>
