@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Purple Wave</title>
+    <title>Purple Waive</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
@@ -11,7 +11,55 @@
 
   <body>
 
-    <section class="hero">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <h1> purple wAIve</h1>
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+              
+                <a class="navbar-item" href="/api/users">
+                    Profile
+                </a>
+                  
+            </div>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    {{#if loggedIn}}
+                    <a href="/" id="logoutBtn"class="button is-warning">
+                        Log Out
+                    </a>
+                    {{else}}
+                    <a  class="button is-success" href="/login">
+                        <strong>Log In</strong>
+                    </a>
+                    <a  class="button is-link" href="/signup">
+                        <strong>Sign Up</strong>
+                    </a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+     <section class="hero">
       <div class="hero-body">
         <p class="title">
           Purple Wave
@@ -22,7 +70,10 @@
       </div>
     </section>
 
-    <nav>
+
+
+
+    {{!-- <nav>
       <!-- Conditionally render login or logout links -->
       {{#if loggedIn}}
         <a href="/profile">My Profile</a>
@@ -31,12 +82,16 @@
       {{else}}
         <a href="/login">Login</a>
       {{/if}}
-    </nav>
+    </nav> --}}
 
     <main>
       <!-- Render the sub layout of the homepage -->
       {{{body}}}
     </main>
+
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
 
   </body>
 </html>
