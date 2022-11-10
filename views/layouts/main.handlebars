@@ -30,8 +30,8 @@
                 <a class="navbar-item" href="/">
                     Home
                 </a>
-              
-                <a class="navbar-item" href="/api/users">
+               {{#if loggedIn}}
+                <a class="navbar-item" href="/profile">
                     Profile
                 </a>
 
@@ -45,7 +45,7 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    {{#if loggedIn}}
+                   
                     <a href="/" id="logoutBtn"class="button is-warning">
                         Log Out
                     </a>
