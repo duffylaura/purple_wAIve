@@ -16,6 +16,7 @@ router.get("/", async (req, res) => {
     //map goes over the allPostData array at each position and gets just the datavalues for the  post. so only the datavalues we want to see will show up
     const post = allPostData.map((post) => post.get({ plain: true }));
     console.log(post, "test");
+    console.log(req.session);
     res.render("homepage", {
       post1: post[0],
       post2: post[1],
