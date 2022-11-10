@@ -20,8 +20,8 @@
         </div>
 
         <div class="tile is-child box">
-            {{#each Tag as |Tag|}}
-            <input class="input" type="tags" value = "{{Tag.title}}">
+            {{#each Post.tag as |Tag|}}
+            <span class="tag is-link is-light">{{Tag.title}}</span>
             {{/each}}
         </div>
 
