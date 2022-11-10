@@ -1,34 +1,49 @@
 <div class="card">
-    <form class="card-content" id="signup-form">
-        <p>Sign Up</p>
-        <div class="field">
-            <label class="label">User Name</label>
-            <div class="control">
-                <input id="username" class="input" type="username" placeholder="e.g. JohnSmith123">
-            </div>
-        </div>
+  <form class="card-content" id="signup-form">
+    <p>Sign Up</p>
+    <div class="field">
+      <label class="label">Username</label>
+      <div class="control">
+        <input
+          id="signupUsername"
+          class="input"
+          type="username"
+          placeholder="e.g. JohnSmith123"
+        />
+      </div>
+    </div>
 
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-                <input id="email" class="input" type="email" placeholder="e.g. JohnSmith@gmail.com">
-            </div>
-        </div>
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control">
+        <input
+          id="signupEmail"
+          class="input"
+          type="email"
+          placeholder="e.g. JohnSmith@gmail.com"
+        />
+      </div>
+    </div>
 
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-                <input id="pw" class="input" type="password" placeholder="at least 8 characters">
-            </div>
-        </div>
-        <div class="field is-grouped">
-            <div class="control">
-                <button class="button is-success" type="submit">Submit</button>
-            </div>
-            <div class="control">
-                <button class="button is-link is-warning" type="button">Cancel</button>
-            </div>
-        </div>
-    </form>
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <input
+          id="signupPW"
+          class="input"
+          type="password"
+          placeholder="at least 8 characters"
+        />
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <button id="signupBtn" class="button is-success" type="submit">sign up</button>
+      </div>
+      <div class="control">
+        <button class="button is-link is-warning" type="button">Cancel</button>
+      </div>
+    </div>
+  </form>
 </div>
-<script src="/js/login.js"></script>
+<script src="/js/signup.js"></script>

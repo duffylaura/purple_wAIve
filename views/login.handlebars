@@ -1,27 +1,45 @@
 <div class="card">
-    <form class="card-content" id="login-form">
-        <p>Log In</p>
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-                <input id="email" class="input" type="email" placeholder="e.g. JohnSmith@gmail.com">
-            </div>
-        </div>
+  <form class="card-content" id="login-form">
+    <p>Log In</p>
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control">
+        <input
+          id="email"
+          class="input"
+          type="email"
+          placeholder="e.g. JohnSmith@gmail.com"
+        />
+      </div>
+    </div>
 
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-                <input id="pw" class="input" type="password" placeholder="at least 8 characters">
-            </div>
-        </div>
-        <div class="field is-grouped">
-            <div class="control">
-                <button class="button is-success" type="submit">Submit</button>
-            </div>
-            <div class="control">
-                <a href="/"><button class="button is-link is-warning" type="button">Cancel</button></a>
-            </div>
-        </div>
-    </form>
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <input
+          id="pw"
+          class="input"
+          type="password"
+          placeholder="at least 8 characters"
+        />
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <button
+          id="loginBtn"
+          class="button is-success"
+          type="submit"
+        >Submit</button>
+      </div>
+      <div class="control">
+        <a href="/"><button
+            class="button is-link is-warning"
+            type="button"
+          >Cancel</button></a>
+      </div>
+    </div>
+  </form>
 </div>
+
 <script src="/js/login.js"></script>

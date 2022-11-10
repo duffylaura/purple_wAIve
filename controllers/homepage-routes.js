@@ -41,6 +41,16 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+//create GET route to get to login page when the user is not logged in and trys to click on a post to read it
+
+router.get("/signup", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("signup");
+});
+
 //get for a blogpost by id and render it in a single post view so we can see who posted it, the tags and when it was created
 
 router.get("/post/:id", auth, async (req, res) => {
