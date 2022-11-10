@@ -1,8 +1,7 @@
 //importing modules
 const User = require("./user");
 const Post = require("./post");
-const Tag = require("./tag");
-const PostTag = require("./postTag");
+const Style = require("./style");
 
 User.hasMany(Post, {
   foreignKey: "user_id",
@@ -13,14 +12,14 @@ Post.belongsTo(User, {
   onDelete: "CASCADE",
 });
 
-Post.belongsToMany(Tag, {
-  through: PostTag,
-  foreignKey: "post_id",
+Style.hasMany(Post, {
+  foreignKey: "style_id",
 });
 
-Tag.belongsToMany(Post, {
-  through: PostTag,
-  foreignKey: "tag_id",
+Post.belongsTo(Style, {
+  foreignKey: "style_id",
+  onDelete: "CASCADE",
 });
 
-module.exports = { User, Post, Tag, PostTag };
+
+module.exports = { User, Post, Style };
