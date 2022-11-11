@@ -13,49 +13,47 @@
     {{/each}}
 
     {{else}}
-
+    <br> <br>
     <div class="tile is-ancestor"> </div>
     <div class = "tile is-vertical"> </div>
     <div class = "tile"> 
 
-    <div class="tile is-4 is-parent is-vertical"> 
-        <article class="tile is-child">
-            <figure class="image is-5by4">
-            <img src="/assets/logo-clear-background.png" alt="Purple Wave Logo"/>
-            </figure>
-        </article>
-
-        <article class = "tile is-child">
-            <p class = "subtitle is-5"> {{post1.title}}</p>
+        <article class = "tile is-4 is-child">
+            <p class = "title is-5"> {{post1.title}}</p>
             <img src="{{post1.img_url}}" alt="{{post1.title}}" />
             <p>created by {{post1.user.username}} on {{format_date post1.created_at}}</p>
         </article>
 
-        <article class = "tile is-child">
-            <p> {{post2.title}}</p>
+        <article class = "tile is-4 is-child">
+            <p class = "title is-5"> {{post2.title}}</p>
             <img src="{{post2.img_url}}" alt="{{post2.title}}" />
             <p>created by {{post2.user.username}} on {{format_date post2.created_at}}</p>
         </article>
-    </div>
 
-    <div class = "tile is-4 is-parent is-vertical">
-        <article class = "tile is-child">
-            <p> {{post3.title}}</p>
+        <article class = "tile is-4 is-child">
+            <p class = "title is-5"> {{post3.title}}</p>
             <img src="{{post3.img_url}}" alt="{{post3.title}}" />
             <p>created by {{post3.user.username}} on {{format_date post3.created_at}}</p>
         </article>
-
-        <article class = "tile is-child">
-            <p> {{post4.title}}</p>
+    </div> <br> <br> <br>
+    <div class = "tile">
+        <article class = "tile is-4 is-child">
+            <p class = "title is-5"> {{post4.title}}</p>
             <img src="{{post4.img_url}}" alt="{{post4.title}}" />
             <p>created by {{post4.user.username}} on {{format_date post4.created_at}}</p>
         </article>
 
-        <article class = "tile is-child">
-            <p> {{post5.title}}</p>
+        <article class = "tile is-4 is-child">
+            <p class = "title is-5"> {{post5.title}}</p>
             <img src="{{post5.img_url}}" alt="{{post5.title}}" />
             <p>created by {{post5.user.username}} on {{format_date post5.created_at}}</p>
         </article>
+
+        <article class = "tile is-4 is-child">
+            <br> <br>
+            <a href="/signup"> <img src="./assets/Login-Call.png" alt="Login in to join community!"/> </a>
+        </article>
+
     </div>
 
     </div>
