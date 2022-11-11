@@ -67,7 +67,10 @@ router.get("/:id", async (req, res) => {
     post.keywords = post.keywords.split(", ");
     console.log(post.keywords);
 
-    res.render("singlePost", { post });
+    res.render("singlePost", {
+      post,
+      loggedIn: req.session.loggedIn
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
