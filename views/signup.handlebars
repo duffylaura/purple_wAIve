@@ -1,51 +1,40 @@
+<img class="image custom-image" src="./assets/logo-clear-background.png" alt="purple wAIve logo"/> </div>
+<h1 class = "title is-3"> Sign Up</h1> 
+
 <div class="card">
   <form class="card-content" id="signup-form">
-    <p>Sign Up</p>
     <div class="field">
       <label class="label">Username</label>
-      <div class="control">
-        <input
-          id="signupUsername"
-          class="input"
-          type="username"
-          placeholder="e.g. JohnSmith123"
-        />
-      </div>
+        <div class="control">
+          <input id="signupUsername" class="input custom-input" type="username" placeholder="e.g. coldBlueChilliPepper"/>
+        </div>
     </div>
-
+    <br>
     <div class="field">
       <label class="label">Email</label>
-      <div class="control">
-        <input
-          id="signupEmail"
-          class="input"
-          type="email"
-          placeholder="e.g. JohnSmith@gmail.com"
-        />
-      </div>
+        <div class="control">
+          <input id="signupEmail" class="input custom-input" type="email" placeholder="e.g. RockOn@gmail.com"/>
+        </div>
     </div>
-
+    <br> 
     <div class="field">
       <label class="label">Password</label>
-      <div class="control">
-        <input
-          id="signupPW"
-          class="input"
-          type="password"
-          placeholder="at least 8 characters"
-        />
-      </div>
+        <div class="control">
+          <input id="signupPW" class="input custom-input" type="password" placeholder="Make it a good one! At least 8 characters!"/>
+        </div>
     </div>
+    <br> 
     <div class="field is-grouped">
       <div class="control">
-        <button id="signupBtn" class="button is-success" type="submit">sign up</button>
+        <button id="signupBtn" class="button custom-button" type="submit"> <strong>Join the Community!</strong></button>
       </div>
       <div class="control">
-        <button class="button is-link is-warning" type="button">Cancel</button>
+        <a href="/"><button class="button custom-button" type="button">abandon ship!</button></a>
       </div>
     </div>
   </form>
 </div>
+
 
 {{! modal that pops up if password or email are wrong }}
 <div class="modal">
