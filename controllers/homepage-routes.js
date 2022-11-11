@@ -19,7 +19,10 @@ router.get("/", async (req, res) => {
     console.log(req.session);
     //if logged in. render homepage with all post (array)
     if (req.session.loggedIn) {
-      res.render("homepage", { post });
+      res.render("homepage", {
+        post,
+        loggedIn: req.session.loggedIn,
+      });
     } else {
       //if not logged in, render homepage with parsed out 5 post
       res.render("homepage", {

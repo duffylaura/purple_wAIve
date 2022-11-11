@@ -6,9 +6,9 @@
     <div class="mx-6 my-6" {{#each post as |Post|}} <a>
 
         <article class="tile is-4 is-child px-6 py-6">
-            <p class="title is-5 is-centered"> {{post.title}}</p>
-            <img class="image" src="{{post.img_url}}" alt="{{post.title}}" />
-            <p>created by {{post.user.username}} on {{format_date post.created_at}}</p>
+            <p class="title is-5 is-centered"> {{Post.title}}</p>
+            <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}" />
+            <p>created by {{Post.user.username}} on {{format_date Post.created_at}}</p>
         </article>
         </a>
         {{/each}}
