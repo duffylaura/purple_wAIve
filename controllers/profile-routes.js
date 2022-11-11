@@ -1,6 +1,6 @@
 const router = require("express").Router();
 //importing models
-const { User, Post, Tag } = require("../models");
+const { User, Post, Style } = require("../models");
 //importing auth helper to make sure user is logged int to access certain routes
 const auth = require("../utils/auth");
 
@@ -13,8 +13,8 @@ router.get("/", auth, async (req, res) => {
       },
       include: [
         {
-          model: Tag,
-          attributes: ["tag_title"],
+          model: Style,
+          attributes: ["style_type"],
         },
         {
           model: User,
@@ -24,10 +24,11 @@ router.get("/", auth, async (req, res) => {
     });
 
     const post = allPostData.map((post) => post.get({ plain: true }));
-    console.log(postData, "test");
+    console.log(post, "test");
     res.render("profile", {
       post,
       loggedIn: true,
+      username: req.session.username
     });
   } catch (err) {
     console.log(err);

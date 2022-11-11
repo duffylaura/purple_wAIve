@@ -68,25 +68,42 @@ router.get("/:id", async (req, res) => {
 router.post("/", auth, async (req, res) => {
   try {
     // openAI, working commenting out until we need it again//
-    // const promptTags = req.body.tags;
-    // const promptStyle = req.body.style;
+    const parsedKeyword = req.body.keyword.join(" ");
+    const storeKeyword = req.body.keyword.join(", ")
+    //change style bck to and ID
+    const styleReq = req.body.newStyle;
+    //query to find by style and get back the ID
+    const styleData = await Style.findOne({
+      where: {
+        style_type: styleReq,
+      },
+      attributes: ["id"],
+    });
+    const styleID = styleData.get({ plain: true });
+    console.log(styleID);
+
     // const response = await openai.createImage({
     //   //prompt, we are going to have to parse in the user inputted tag, add Album, and the style
-    //   prompt: "`ferret riding a unicycle with a cat on the backseat`",
+    //   prompt: `${parsedKeyword} Album, ${Style}`,
     //   //how many photo alloted
     //   n: 1,
     //   //set size
     //   size: "512x512",
     // }) // set index, since we are ever only generating one
-    // console.log(response);
+    // console.log(storeKeyword);
     // const image_url = response.data.data[0].url;
+    //for now
+    const image_url = ("https://via.placeholder.com/512");
+
 
     //creating post content to store in db
     const PostData = await Post.create({
-      title: req.body.title,
+      title: req.body.newTitle,
       img_url: image_url,
+      keywords: storeKeyword,
+      body: req.body.newBody,
+      style: styleID.id,
       user_id: req.session.user_id,
-      body: req.body.body,
     })
 
     res.json(PostData);
