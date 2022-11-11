@@ -57,6 +57,9 @@ router.get("/:id", async (req, res) => {
     }
     const post = PostData.get({ plain: true });
     console.log(post)
+    //converting keywordTags back to array to be displayed
+    post.keywords = post.keywords.split(", ");
+    console.log(post.keywords);
     res.render("singlePost", { post });
   } catch (err) {
     console.log(err);
@@ -71,16 +74,15 @@ router.post("/", auth, async (req, res) => {
     const storeKeyword = req.body.keyword.join(", ")
     //change style bck to and ID
     const styleReq = req.body.newStyle;
-    console.log(req.body.newStyle);
+    console.log(req.body.newStyle + "test12");
     //query to find by style and get back the ID
     const styleData = await Style.findOne({
       where: {
         style_type: styleReq,
       },
-      attributes: ["id"],
     });
     const styleID = styleData.get({ plain: true });
-    console.log(styleData);
+    console.log(styleData + "test123");
 
     // openAI, working commenting out until we need it again//
     // const response = await openai.createImage({
