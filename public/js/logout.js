@@ -1,7 +1,5 @@
+//function to handle logout
 const logout = async () => {
-  console.log(
-    "logout clicked---------------------------------------------------------------------------------------------------------"
-  );
   const response = await fetch("/api/user/logout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -14,4 +12,5 @@ const logout = async () => {
   }
 };
 
+//when the user clicks the logout button the logout function is triggered
 document.querySelector("#logoutBtn").addEventListener("click", logout);
