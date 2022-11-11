@@ -57,6 +57,9 @@ router.get("/:id", async (req, res) => {
     }
     const post = PostData.get({ plain: true });
     console.log(post)
+    //converting keywordTags back to array to be displayed
+    post.keywords = post.keywords.split(", ");
+    console.log(post.keywords);
     res.render("singlePost", { post });
   } catch (err) {
     console.log(err);
@@ -67,21 +70,21 @@ router.get("/:id", async (req, res) => {
 //   post router
 router.post("/", auth, async (req, res) => {
   try {
-    // openAI, working commenting out until we need it again//
     const parsedKeyword = req.body.keyword.join(" ");
     const storeKeyword = req.body.keyword.join(", ")
     //change style bck to and ID
     const styleReq = req.body.newStyle;
+    console.log(req.body.newStyle + "test12");
     //query to find by style and get back the ID
     const styleData = await Style.findOne({
       where: {
         style_type: styleReq,
       },
-      attributes: ["id"],
     });
     const styleID = styleData.get({ plain: true });
-    console.log(styleID);
+    console.log(styleData + "test123");
 
+    // openAI, working commenting out until we need it again//
     // const response = await openai.createImage({
     //   //prompt, we are going to have to parse in the user inputted tag, add Album, and the style
     //   prompt: `${parsedKeyword} Album, ${Style}`,
