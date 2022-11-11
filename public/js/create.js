@@ -15,18 +15,26 @@ const createPostForm = async (e) => {
     const newTitle = postTitle.value;
     const newBody = postBody.value;
     const newStyle = postStyle.value;
-    const newKeywords = keyword.join(" ");
-    console.log(newKeywords);
     console.log(newStyle);
 
 
-
-
-    // if(postTitle && postTag && postStyle && postBody) {
-    //     const response 
-    // }
-
-
+    if (newTitle && newBody && newStyle && keyword) {
+        const response = await fetch("/api/post", {
+            method: "POST",
+            body: JSON.stringify({
+                newTitle,
+                keyword,
+                newStyle,
+                newBody,
+            }),
+            headers: { "Content-Type": "application/json" }
+        })
+        if (response.ok) {
+            document.location.replace("/profile");
+        } else {
+            alert("post creation failed, please try again")
+        }
+    }
 }
 
 //logic to add tag to page for action feedback and to keep track of our keywords;
