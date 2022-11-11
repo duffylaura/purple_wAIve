@@ -16,7 +16,7 @@
               on
               {{format_date post.created_at}}</p>
             {{#if loggedIn}}
-              <button href="/edit-post" class="button is-link">edit post</button>
+            <button href="/edit-post" class="button is-link">edit post</button>
             {{/if}}
           </article>
         </div>
@@ -26,8 +26,8 @@
             <p class="title is-5"> {{post.body}}</p>
           </article>
           <article class="title is-child notification is-link is-light">
-            {{#each post.tags as |Tag|}}
-              <span class="tag is-link is-light">#{{Tag.tag_title}}</span>
+            {{#each post.keywords as |Tag|}}
+            <span class="tag is-link is-light">#{{Tag}}</span>
             {{/each}}
           </article>
         </div>

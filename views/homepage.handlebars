@@ -1,65 +1,58 @@
 {{#if loggedIn}}
-    {{#each post}}  <!-- Fix this styling after get static homepage --> 
-    <div class="tile is-4 is-parent">
-        <div class="tile is-child box">
-            <p> {{post.title}}</p>
-            <img src="{{post.img_url}}" alt="{{post.title}}" />
-            <p>created by
-                {{post.user.username}}
-                on
-                {{format_date post.created_at}}</p>
-        </div>
+<section class="hero">
+    <img class="image" src="./assets/banner-text-large.png" alt="Logo Banner" />
+</section>
+<div class="column">
+    <div class="mx-6 my-6" {{#each post as |Post|}} <a>
+
+        <article class="tile is-4 is-child px-6 py-6">
+            <p class="title is-5 is-centered"> {{post.title}}</p>
+            <img class="image" src="{{post.img_url}}" alt="{{post.title}}" />
+            <p>created by {{post.user.username}} on {{format_date post.created_at}}</p>
+        </article>
+        </a>
+        {{/each}}
     </div>
-    {{/each}}
-
-    {{else}}
-
-    
-    <section class="hero">
-        <img class = "image" src="./assets/banner-text-large.png" alt="Logo Banner"/>
-    </section>
-
-    <div class = "tile">
-        <article class = "tile is-4 is-child px-6 py-6"> 
-                <p class = "title is-5 is-centered"> {{post1.title}}</p>
-                 <img class ="image" src="{{post1.img_url}}" alt="{{post1.title}}"/> 
-                <p>created by {{post1.user.username}} on {{format_date post1.created_at}}</p>
-        </article>
-
-        <article class = "tile is-4 is-child px-6 py-6">
-                <p class = "title is-5 is-centered"> {{post2.title}}</p>
-                <img class ="image" src="{{post2.img_url}}" alt="{{post2.title}}"/>
-                <p>created by {{post2.user.username}} on {{format_date post2.created_at}}</p>
-        </article>
-
-        <article class = "tile is-4 is-child px-6 py-6">
-                <p class = "title is-5 is-centered"> {{post3.title}}</p>
-                <img class ="image" src="{{post3.img_url}}" alt="{{post3.title}}"/>
-                <p>created by {{post3.user.username}} on {{format_date post3.created_at}}</p>
-        </article>
-    </div> 
-
-    <br> 
-    <br> 
-    <br>
-
-    <div class = "tile">
-        <article class = "tile is-4 is-child px-6 py-6">
-                <p class = "title is-5 is-centered"> {{post4.title}}</p>
-                 <img class ="image" src="{{post4.img_url}}" alt="{{post4.title}}"/>
-                <p>created by {{post4.user.username}} on {{format_date post4.created_at}}</p>
-        </article>
-
-        <article class = "tile is-4 is-child px-6 py-6">
-                <p class = "title is-5 is-centered"> {{post5.title}}</p>
-                <img class ="image" src="{{post5.img_url}}" alt="{{post5.title}}"/>
-                <p>created by {{post5.user.username}} on {{format_date post5.created_at}}</p>
-        </article>
-
-        <article class = "tile is-4 is-child px-6 py-6">
-            <br> <br>
-            <a href="/signup"> <img src="./assets/Login-Call.png" alt="Login in to join community!"/> </a>
-        </article>
-    </div>
-
+</div>
+{{else}}
+<section class="hero">
+    <img class="image" src="./assets/banner-text-large.png" alt="Logo Banner" />
+</section>
+<div class="tile">
+    <article class="tile is-4 is-child px-6 py-6">
+        <p class="title is-5 is-centered"> {{post1.title}}</p>
+        <img class="image" src="{{post1.img_url}}" alt="{{post1.title}}" />
+        <p>created by {{post1.user.username}} on {{format_date post1.created_at}}</p>
+    </article>
+    <article class="tile is-4 is-child px-6 py-6">
+        <p class="title is-5 is-centered"> {{post2.title}}</p>
+        <img class="image" src="{{post2.img_url}}" alt="{{post2.title}}" />
+        <p>created by {{post2.user.username}} on {{format_date post2.created_at}}</p>
+    </article>
+    <article class="tile is-4 is-child px-6 py-6">
+        <p class="title is-5 is-centered"> {{post3.title}}</p>
+        <img class="image" src="{{post3.img_url}}" alt="{{post3.title}}" />
+        <p>created by {{post3.user.username}} on {{format_date post3.created_at}}</p>
+    </article>
+</div>
+<br>
+<br>
+<br>
+<div class="tile">
+    <article class="tile is-4 is-child px-6 py-6">
+        <p class="title is-5 is-centered"> {{post4.title}}</p>
+        <img class="image" src="{{post4.img_url}}" alt="{{post4.title}}" />
+        <p>created by {{post4.user.username}} on {{format_date post4.created_at}}</p>
+    </article>
+    <article class="tile is-4 is-child px-6 py-6">
+        <p class="title is-5 is-centered"> {{post5.title}}</p>
+        <img class="image" src="{{post5.img_url}}" alt="{{post5.title}}" />
+        <p>created by {{post5.user.username}} on {{format_date post5.created_at}}</p>
+    </article>
+    <article class="tile is-4 is-child px-6 py-6">
+        <br>
+        <br>
+        <a href="/signup"> <img src="./assets/Login-Call.png" alt="Login in to join community!" /> </a>
+    </article>
+</div>
 {{/if}}
