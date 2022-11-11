@@ -14,24 +14,23 @@
 
     {{else}}
     <br> <br>
+
     <div class = "tile">
-    <div class = "tile">
-        <article class = "tile is-4 is-child">
+        <article class = "tile is-4 is-child px-6 py-6"> 
                 <p class = "title is-5 is-centered"> {{post1.title}}</p>
-                <div class = "px-6 py-6"> <img class ="image" src="{{post1.img_url}}" alt="{{post1.title}}"/> </div>
+                 <img class ="image" src="{{post1.img_url}}" alt="{{post1.title}}"/> 
                 <p>created by {{post1.user.username}} on {{format_date post1.created_at}}</p>
-            </div>
         </article>
 
-        <article class = "tile is-4 is-child">
+        <article class = "tile is-4 is-child px-6 py-6">
                 <p class = "title is-5 is-centered"> {{post2.title}}</p>
-                <div class = "px-6 py-6"> <img class ="image" src="{{post2.img_url}}" alt="{{post2.title}}"/></div>
+                <img class ="image" src="{{post2.img_url}}" alt="{{post2.title}}"/>
                 <p>created by {{post2.user.username}} on {{format_date post2.created_at}}</p>
         </article>
 
-        <article class = "tile is-4 is-child">
+        <article class = "tile is-4 is-child px-6 py-6">
                 <p class = "title is-5 is-centered"> {{post3.title}}</p>
-                <div class = "px-6 py-6"> <img class ="image" src="{{post3.img_url}}" alt="{{post3.title}}"/></div>
+                <img class ="image" src="{{post3.img_url}}" alt="{{post3.title}}"/>
                 <p>created by {{post3.user.username}} on {{format_date post3.created_at}}</p>
         </article>
     </div> 
@@ -41,24 +40,22 @@
     <br>
 
     <div class = "tile">
-        <article class = "tile is-4 is-child">
+        <article class = "tile is-4 is-child px-6 py-6">
                 <p class = "title is-5 is-centered"> {{post4.title}}</p>
-                <div class = "px-6 py-6"> <img class ="image" src="{{post4.img_url}}" alt="{{post4.title}}"/></div>
+                 <img class ="image" src="{{post4.img_url}}" alt="{{post4.title}}"/>
                 <p>created by {{post4.user.username}} on {{format_date post4.created_at}}</p>
         </article>
 
-        <article class = "tile is-4 is-child">
+        <article class = "tile is-4 is-child px-6 py-6">
                 <p class = "title is-5 is-centered"> {{post5.title}}</p>
-                <div class = "px-6 py-6"> <img class ="image" src="{{post5.img_url}}" alt="{{post5.title}}"/></div>
+                <img class ="image" src="{{post5.img_url}}" alt="{{post5.title}}"/>
                 <p>created by {{post5.user.username}} on {{format_date post5.created_at}}</p>
         </article>
 
-        <article class = "tile is-4 is-child">
-            <div class = "px-6 py-6">
+        <article class = "tile is-4 is-child px-6 py-6">
             <br> <br>
             <a href="/signup"> <img src="./assets/Login-Call.png" alt="Login in to join community!"/> </a>
-            </div>
         </article>
     </div>
-</div>
+
 {{/if}}
