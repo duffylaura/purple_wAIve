@@ -91,8 +91,9 @@ router.post("/", auth, async (req, res) => {
         style_type: styleReq,
       },
     });
-    const styleID = styleData.get({ plain: true });
-    console.log(styleData + "test123");
+    let styleID = styleData.get({ plain: true });
+    // styleID = JSON.stringify(styleID)
+    console.log(styleID.id);
 
 
     // openAI, working commenting out until we need it again//
@@ -146,7 +147,7 @@ router.post("/", auth, async (req, res) => {
       img_url: `/assets/dalle/${filename}.png`,
       keywords: storeKeyword,
       body: req.body.newBody,
-      style: styleID.id,
+      style_id: styleID.id,
       user_id: req.session.user_id,
     });
 
