@@ -1,16 +1,19 @@
 const signupFormHandler = async (event) => {
   event.preventDefault();
-  // console.log("clicked");
+
   console.log("clicked signup");
 
-  const username = document.querySelector("#signupUsername").value.trim();
-  const email = document.querySelector("#signupEmail").value.trim();
-  const password = document.querySelector("#signupPW").value.trim();
+  const modalEl = document.querySelector(".modal");
+  emailValidation();
+  passwordValidation();
+  if (modalEl.classList.contains("is-active")) {
+    return;
+  } else {
+    const username = document.querySelector("#signupUsername").value.trim();
+    const email = document.querySelector("#signupEmail").value.trim();
+    const password = document.querySelector("#signupPW").value.trim();
 
-  if (username && email && password) {
-    const email = emailValidation();
-    const pw = passwordValidation();
-    if (email === true && pw === true) {
+    if (username && email && password) {
       const response = await fetch("/api/user/signup", {
         method: "POST",
         body: JSON.stringify({
@@ -24,9 +27,6 @@ const signupFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace("/");
       }
-      // else {
-      //   alert("sign-up failed.");
-      // }
     }
   }
 };
@@ -43,10 +43,7 @@ const emailValidation = () => {
     modalTextEl.textContent = "Please enter a valid email ";
     modalOKBtn.addEventListener("click", function () {
       modalEl.classList.remove("is-active");
-      return false;
     });
-  } else {
-    return true;
   }
 };
 
@@ -66,13 +63,9 @@ const passwordValidation = () => {
       "Please enter a password with  at least one lowercase letter , one uppercase letter , one digit , one special character , and is at least eight characters long. ";
     modalOKBtn.addEventListener("click", function () {
       modalEl.classList.remove("is-active");
-      return false;
     });
-  } else {
-    return true;
   }
 };
-
 document
   .querySelector("#signupBtn")
   .addEventListener("click", signupFormHandler);
