@@ -22,13 +22,13 @@ router.get("/", auth, async (req, res) => {
         },
       ],
     });
-
+    //map goes over the allPostData array at each position and gets just the datavalues for the  post. and then we serialize the data with post.get so only the datavalues we want to see will show up
     const post = allPostData.map((post) => post.get({ plain: true }));
     console.log(post, "test");
     res.render("profile", {
       post,
       loggedIn: true,
-      username: req.session.username
+      username: req.session.username,
     });
   } catch (err) {
     console.log(err);

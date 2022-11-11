@@ -13,14 +13,15 @@ router.get("/", async (req, res) => {
         attributes: ["id", "username"],
       },
     });
-    //map goes over the allPostData array at each position and gets just the datavalues for the  post. so only the datavalues we want to see will show up
+    //map goes over the allPostData array at each position and gets just the datavalues for the  post. and then we serialize the data with post.get so only the datavalues we want to see will show up
     const post = allPostData.map((post) => post.get({ plain: true }));
     console.log(post, "test");
     console.log(req.session);
     //if logged in. render homepage with all post (array)
     if (req.session.loggedIn) {
       res.render("homepage", { post });
-    } else { //if not logged in, render homepage with parsed out 5 post
+    } else {
+      //if not logged in, render homepage with parsed out 5 post
       res.render("homepage", {
         post1: post[0],
         post2: post[1],
@@ -28,8 +29,8 @@ router.get("/", async (req, res) => {
         post4: post[3],
         post5: post[4],
         loggedIn: req.session.loggedIn,
-      })
-    };
+      });
+    }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -74,7 +75,7 @@ router.get("/post/:id", auth, async (req, res) => {
     });
     console.log(singlePostData);
     const post = singlePostData.get({ plain: true });
-    //rendering single post when you click it on homepage
+    //rendering single post hbs when you click it on homepage
     res.render("single-post", {
       post,
       loggedIn: req.session.loggedIn,
@@ -94,6 +95,5 @@ router.get("/create", auth, (req, res) => {
   }
   res.render("createPost");
 });
-
 
 module.exports = router;

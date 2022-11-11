@@ -1,3 +1,4 @@
+//function to hold js logic to make the login page work
 const loginFormHandler = async (event) => {
   event.preventDefault();
   console.log("clicked login");
@@ -14,11 +15,11 @@ const loginFormHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
 
+    //if incorrect password or login, then disply the modal
     if (!response.ok) {
       console.log(await response.json());
       loginValidation();
       return;
-      // console.log("successfully logged in");
     } else {
       // If successful, redirect the browser to the homepage page
       document.location.replace("/");
@@ -26,6 +27,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
+//function to display an error modal if the user inputts an incorrect password or email
 const loginValidation = () => {
   const modalOKBtn = document.querySelector(".ok-btn");
   const modalTextEl = document.querySelector("#user-valid");
@@ -37,4 +39,5 @@ const loginValidation = () => {
   });
 };
 
+//when the user clicks the login button the login function is triggered
 document.querySelector("#loginBtn").addEventListener("click", loginFormHandler);
