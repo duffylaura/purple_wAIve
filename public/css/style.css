@@ -2,14 +2,21 @@
     background-color:#F2FAA3;
 }
 
-.custom-image{
-    width: 360px;
-    height: 218px;
-    left: 511px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+.custom-input {
+    background-color: #82259349;
+    color: black; 
 }
 
-.custom-input {
-    background-color: #832593;
-    opacity: 0.4; 
+.custom-button {
+    background: rgba(193, 86, 247, 0.4);
+    box-shadow: 0px 4px 4px #F2FAA3;
 }
+
+@media screen and (min-width: 769px) {
+    .custom-image{
+        width: 360px;
+        height: 218px;
+        left: 511px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+  }

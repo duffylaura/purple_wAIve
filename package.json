@@ -28,10 +28,13 @@
     "handlebars": "^4.7.6",
     "mysql2": "^2.1.0",
     "openai": "^3.1.0",
-
     "puppeteer": "^19.2.2",
     "request": "^2.88.2",
     "sequelize": "^6.3.5",
     "tiny-shortener": "^2.2.3"
+  },
+  "devDependencies": {
+    "bulma": "^0.9.4",
+    "node-sass": "^8.0.0"
   }
 }
