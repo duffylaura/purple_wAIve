@@ -67,11 +67,11 @@ router.get("/:id", async (req, res) => {
 //   post router
 router.post("/", auth, async (req, res) => {
   try {
-    // openAI, working commenting out until we need it again//
     const parsedKeyword = req.body.keyword.join(" ");
     const storeKeyword = req.body.keyword.join(", ")
     //change style bck to and ID
     const styleReq = req.body.newStyle;
+    console.log(req.body.newStyle);
     //query to find by style and get back the ID
     const styleData = await Style.findOne({
       where: {
@@ -80,8 +80,9 @@ router.post("/", auth, async (req, res) => {
       attributes: ["id"],
     });
     const styleID = styleData.get({ plain: true });
-    console.log(styleID);
+    console.log(styleData);
 
+    // openAI, working commenting out until we need it again//
     // const response = await openai.createImage({
     //   //prompt, we are going to have to parse in the user inputted tag, add Album, and the style
     //   prompt: `${parsedKeyword} Album, ${Style}`,
