@@ -2,7 +2,13 @@ const router = require("express").Router();
 const { Post, User, Style } = require("../../models");
 const sequelize = require("../../config/connection");
 const auth = require("../../utils/auth");
-const puppeteer = require("puppeteer");
+// const puppeteer = require("puppeteer");
+//to download image
+var fs = require('fs'),
+  http = require('http'),
+  https = require('https');
+var Stream = require('stream').Transform;
+
 // openai api for generation;
 const { Configuration, Openai, OpenAIApi } = require("openai");
 const configuration = new Configuration({
@@ -73,7 +79,7 @@ router.post("/", auth, async (req, res) => {
   try {
     const parsedKeyword = req.body.keyword.join(" ");
     const storeKeyword = req.body.keyword.join(", ");
-    //change style bck to and ID
+    //change style back to and ID //currently broken
     const styleReq = req.body.newStyle;
     console.log(req.body.newStyle + "test12");
     //query to find by style and get back the ID
@@ -89,22 +95,52 @@ router.post("/", auth, async (req, res) => {
     // openAI, working commenting out until we need it again//
     const response = await openai.createImage({
       //prompt, we are going to have to parse in the user inputted tag, add Album, and the style
-      prompt: `${parsedKeyword} Album, ${Style}`,
+      prompt: `${parsedKeyword} Album, ${styleReq}`,
       //how many photo alloted
       n: 1,
       //set size
       size: "512x512",
     }); // set index, since we are ever only generating one
     console.log(storeKeyword);
+    console.log(response.data.created + "<--our file name");
+    const filename = response.data.created;
     const image_url = response.data.data[0].url;
-    
+    console.log(image_url + "<--for funsies just incase error and we lost the image");
+
+    //downloading image from url since expiring 1 hr
+
+
+    // Download Image Helper Function
+    var downloadImageFromURL = (url, filename, callback) => {
+
+      var client = http;
+      if (url.toString().indexOf("https") === 0) {
+        client = https;
+      }
+
+      client.request(url, function (response) {
+        var data = new Stream();
+
+        response.on('data', function (chunk) {
+          data.push(chunk);
+        });
+
+        response.on('end', function () {
+          fs.writeFileSync(`./public/assets/dalle/${filename}`, data.read());
+        });
+      }).end();
+    };
+
+    // Calling Function to Download
+    downloadImageFromURL(image_url, `${filename}.png`);
+
     //for now
     // const image_url = "https://via.placeholder.com/512";
 
     //creating post content to store in db
     const PostData = await Post.create({
       title: req.body.newTitle,
-      img_url: image_url,
+      img_url: `/assets/dalle/${filename}.png`,
       keywords: storeKeyword,
       body: req.body.newBody,
       style: styleID.id,
