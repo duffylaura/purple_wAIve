@@ -6,31 +6,23 @@
     <img class="image is-512x512" src="./assets/logo-clear-background.png" alt="purple wAIve">
   </div>
 </section>
+
 {{#if post.length}}
-{{#each post}}
 <div class="tile is-ancestor">
   <div class="tile is-12">
-    <article class="tile is-child box">
-      <p class="title">{{title}}</p>
-      <figure class="image is-4by3">
-        <img src="{{img_url}}">
-      </figure>
-    </article>
-    <div class="tile">
-      <div class="tile is-child box">
-        <div class="block">
-          <p>{{body}} </p>
-        </div>
-        <div class="block">
-          <p><strong>by {{user.username }} on {{format_date createdAt}}</strong></p>
-        </div>
-        <div class="tags are-normal">
-          <span class="tag is-normal">{{style.style_type}}</span>
-        </div>
-        {{/each}}
 
+{{#each post}}
+  <article class="tile is-child box">
+    <p class="title">{{title}}</p>
+    <figure class="image is-4by3"> <img src="{{img_url}}"> </figure>
+    <p>{{body}} </p>
+    <p> by {{user.username }} on {{format_date createdAt}} </p>
+    <div class="tags are-normal"> </div><span class="tag is-normal">{{style.style_type}}</span> </div>
+  </article>
+{{/each}}
 
-        {{else}}
-        <h1>You have no Posts!</h1>
-        </section>
-        {{/if}}
+{{else}}
+<h1>You have no Posts!</h1>
+ {{/if}}
+ </div>
+ </div>
