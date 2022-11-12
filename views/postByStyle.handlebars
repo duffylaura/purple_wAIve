@@ -1,0 +1,26 @@
+<section class="hero is-primary">
+    <div class="hero-body">
+        <p class="title">
+            Style: {{allPost.style_type}}
+        </p>
+        <img class="image is-512x512" src="/assets/logo-clear-background.png" alt="purple wAIve">
+    </div>
+</section>
+
+{{#if allPost.posts.length}}
+<div class="tile is-ancestor">
+    <div class="tile is-12">
+        {{#each allPost.posts as |post|}}
+        <article class="tile is-child box">
+            <p class="title">{{post.title}}</p>
+            <a href="/api/post/{{post.id}}"> <img class="image" src="{{post.img_url}}" alt="{{post.title}}"></a>
+            <p>{{post.body}} </p>
+            <p> by {{post.user.username }} on {{format_date post.created_at}} </p>
+        </article>
+        {{/each}}
+
+        {{else}}
+        <h1>No Post with this style yet</h1>
+        {{/if}}
+    </div>
+</div>

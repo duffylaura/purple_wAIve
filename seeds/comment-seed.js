@@ -22,12 +22,12 @@ const commentData = [
     post_id: 2,
   },
   {
-    text: "4rt345t345t45",
+    text: "What am I doing?",
     user_id: 1,
     post_id: 2,
   },
   {
-    text: "cool blog!",
+    text: "cool blog and posts!",
     user_id: 3,
     post_id: 2,
   },
