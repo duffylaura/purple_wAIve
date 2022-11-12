@@ -18,11 +18,16 @@
     box-shadow: 0px 4px 4px #F2FAA3;
 }
 
+.custom-title {
+    color: #EBC6FE;
+    text-align: center;
+}
+
 @media screen and (min-width: 1023px) {
     .custom-image{
-        width: 360px;
+        width: 50%;
         height: 218px;
-        left: 511px;
+        left: 50%;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 

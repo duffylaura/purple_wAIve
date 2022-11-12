@@ -1,24 +1,24 @@
-<section class="hero is-primary">
-  <div class="hero-body">
-    <p class="title">
-      @{{username}}
-    </p>
-    <img class="image is-512x512" src="./assets/logo-clear-background.png" alt="purple wAIve">
-  </div>
-</section>
+    <br>
+    <div class="card custom-card">
+      <br>
+        <p class="title custom-title"> @{{username}}</p>
+        <img class="image" src="/assets/logo-white-background.png" alt="Logo">
+    </div> 
+
 
 {{#if post.length}}
-<div class="tile is-ancestor">
-  <div class="tile is-12">
-
-{{#each post}}
-  <article class="tile is-child box">
-    <p class="title">{{title}}</p>
-    <figure class="image is-4by3"> <img src="{{img_url}}"> </figure>
-    <p>{{body}} </p>
-    <p> by {{user.username }} on {{format_date createdAt}} </p><a href="/profile/edit/{{id}}" class="button is-link">edit post</a>
-    <div class="tags are-normal"> </div><span class="tag is-normal">{{style.style_type}}</span> </div>
-  </article>
+<div class = "column px-6 py-6">
+{{#each post as |Post|}}
+<div class="card custom-card">
+  <p class="title is-5"> {{Post.title}}</p>
+  <a href="/api/post/{{Post.id}}"> <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}"></a>
+   <p class="is-italic"> created on {{format_date Post.createdAt}} </p>
+  <p> {{Post.body}}</p>
+  <div class="tags are-normal"> </div><span class="tag is-normal">{{Post.style.style_type}}</span> </div>
+</div> 
+<br>
+  <a href="/profile/edit/{{Post.id}}" class="button custom-button">edit post</a>
+<br>
 {{/each}}
 
 {{else}}
