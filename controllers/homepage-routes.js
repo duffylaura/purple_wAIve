@@ -79,7 +79,7 @@ router.get("/post/:id", auth, async (req, res) => {
     console.log(singlePostData);
     const post = singlePostData.get({ plain: true });
     //rendering single post hbs when you click it on homepage
-    res.render("single-post", {
+    res.render("singlePost", {
       post,
       loggedIn: req.session.loggedIn,
     });
