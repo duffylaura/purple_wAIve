@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User, Style } = require("../../models");
+const { Post, User, Style, Comment } = require("../../models");
 const sequelize = require("../../config/connection");
 const auth = require("../../utils/auth");
 // const puppeteer = require("puppeteer");
@@ -47,6 +47,15 @@ router.get("/:id", async (req, res) => {
       attributes: ["id", "title", "img_url", "body", "created_at", "keywords"],
       include: [
         {
+          model: Comment,
+          attributes: ["text", "user_id", "created_at"],
+          include: {
+            model: User,
+            attributes: ["username"],
+            // as: "comment_username",
+          },
+        },
+        {
           model: User,
           attributes: ["username"],
         },
@@ -63,6 +72,8 @@ router.get("/:id", async (req, res) => {
     const post = PostData.get({ plain: true });
 
     console.log(post);
+    console.log(post.comments[0]);
+
     //converting keywordTags back to array to be displayed
     post.keywords = post.keywords.split(", ");
     console.log(post.keywords);

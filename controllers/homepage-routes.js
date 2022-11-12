@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, Tag, User } = require("../models");
+const { Post, Tag, User, Comment } = require("../models");
 const auth = require("../utils/auth");
 
 //get all posts by all users for homepage and render to homepage hbs
@@ -8,10 +8,20 @@ router.get("/", async (req, res) => {
   try {
     const allPostData = await Post.findAll({
       attributes: ["id", "title", "img_url", "body", "created_at", "user_id"],
-      include: {
-        model: User,
-        attributes: ["id", "username"],
-      },
+      include: [
+        {
+          model: Comment,
+          attributes: ["id", "text", "post_id", "user_id", "created_at"],
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
+          include: {
+            model: User,
+            attributes: ["id", "username"],
+          },
+        },
+      ],
     });
     //map goes over the allPostData array at each position and gets just the datavalues for the  post. and then we serialize the data with post.get so only the datavalues we want to see will show up
     const post = allPostData.map((post) => post.get({ plain: true }));
@@ -71,8 +81,16 @@ router.get("/post/:id", auth, async (req, res) => {
       attributes: ["id", "title", "img_url", "created_at", "user_id"],
       include: [
         {
-          model: User,
-          attributes: ["id", "username"],
+          model: Comment,
+          attributes: ["id", "text", "post_id", "user_id", "created_at"],
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
+          include: {
+            model: User,
+            attributes: ["id", "username"],
+          },
         },
       ],
     });

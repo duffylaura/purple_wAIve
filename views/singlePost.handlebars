@@ -31,5 +31,44 @@
     </div>
   </div>
 </div>
+{{#each post.comments as |comment|}}
+<article class="media">
+  <figure class="media-left"></figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>{{comment.user.username}}</strong>
+        <br />
+        {{comment.text}}
+        <br />
+        <small
+          ><a>Like</a> · <a>Reply</a> · {{format_date
+          comment.created_at}}</small
+        >
+      </p>
+    </div>
+  </div>
+</article>
+{{/each}} 
+{{#if loggedIn}}
+<article class="media">
+  <figure class="media-left"></figure>
+  <div class="media-content">
+    <div class="field">
+      <p class="control">
+        <textarea class="textarea" placeholder="Add a comment..."></textarea>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control">
+        <button id="commentBtn" class="button">Post comment</button>
+      </p>
+    </div>
+  </div>
+</article>
+{{/if}}
 
-<script src="/js/edit-post.js"> </script>
+{{!-- <script src="/js/edit-post.js"> </script> --}}
+{{#if loggedIn}}
+<script src="/js/comment.js"></script>
+{{/if}}

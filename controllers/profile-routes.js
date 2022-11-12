@@ -1,6 +1,6 @@
 const router = require("express").Router();
 //importing models
-const { User, Post, Style } = require("../models");
+const { User, Post, Style, Comment } = require("../models");
 //importing auth helper to make sure user is logged int to access certain routes
 const auth = require("../utils/auth");
 
@@ -13,12 +13,20 @@ router.get("/", auth, async (req, res) => {
       },
       include: [
         {
+          model: Comment,
+          attributes: ["id", "text", "post_id", "user_id", "created_at"],
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
+        },
+        {
           model: Style,
           attributes: ["style_type"],
         },
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["id", "username"],
         },
       ],
     });
@@ -53,6 +61,14 @@ router.get("/edit/:id", auth, async (req, res) => {
         {
           model: User,
           attributes: ["username"],
+        },
+        {
+          model: Comment,
+          attributes: ["text", "user_id", "created_at", "id", "post_id"],
+          include: {
+            model: User,
+            atrributes: ["username"],
+          },
         },
       ],
     });
