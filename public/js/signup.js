@@ -77,6 +77,18 @@ const passwordValidation = () => {
   }
 };
 
+//function to check if the username already exists and if does give them a pop up modal saying that
+
+const usernameCheck = () => {
+  const usernameValue = document.querySelector("#signupUsername").value.trim();
+
+  // if username is taken already, then unhide modal
+  modalEl.classList.add("is-active");
+  modalTextEl.textContent = "Username already taken. ";
+  modalOKBtn.addEventListener("click", function () {
+    modalEl.classList.remove("is-active");
+  });
+};
 //when the user clicks the sign up button the signup function is triggered
 document
   .querySelector("#signupBtn")
