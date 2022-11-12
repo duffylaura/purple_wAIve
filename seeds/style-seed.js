@@ -38,6 +38,9 @@ const styleSeed = [
     style_type: "Impressionism",
   },
   {
+    style_type: "Isometric 3D",
+  },
+  {
     style_type: "Nightmare Before Christmas",
   },
   {
@@ -72,9 +75,6 @@ const styleSeed = [
   },
   {
     style_type: "Watercolor",
-  },
-  {
-    style_type: "Isometric 3D",
   }
 ];
 
