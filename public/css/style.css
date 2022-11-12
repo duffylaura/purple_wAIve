@@ -25,15 +25,26 @@
 
 @media screen and (min-width: 1023px) {
     .custom-image{
-        width: 50%;
+        width: 360px;
         height: 218px;
-        left: 50%;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     .custom-card {
-        width: 500px;
-        left: 511px;
+        margin-left: 25%;
+        width: 360px;
+        height: fit-content;
+        margin-top: 20px; 
+        margin-bottom: 20px; 
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .custom-card-body {
+        margin-left: 5px; 
+        margin-right: 5px; 
+    }
+
+    .custom-columns {
+        height: fit-content;
     }
   }

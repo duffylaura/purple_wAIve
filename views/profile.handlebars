@@ -1,28 +1,43 @@
-    <br>
-    <div class="card custom-card">
+<br>
+
+<div class = "columms custom-columns">
+  <div class = "column is-half is-offset-one-quarter"> 
+    <div class="card custom-card"> 
       <br>
-        <p class="title custom-title"> @{{username}}</p>
-        <img class="image" src="/assets/logo-white-background.png" alt="Logo">
-    </div> 
+      <p class="title custom-title"> @{{username}}</p>
+      <img class="image" src="/assets/logo-white-background.png" alt="Logo">
+    </div>
+  </div>
+</div>
 
 
-{{#if post.length}}
-<div class = "column px-6 py-6">
-{{#each post as |Post|}}
-<div class="card custom-card">
-  <p class="title is-5"> {{Post.title}}</p>
-  <a href="/api/post/{{Post.id}}"> <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}"></a>
-   <p class="is-italic"> created on {{format_date Post.createdAt}} </p>
-  <p> {{Post.body}}</p>
-  <div class="tags are-normal"> </div><span class="tag is-normal">{{Post.style.style_type}}</span> </div>
-</div> 
-<br>
-  <a href="/profile/edit/{{Post.id}}" class="button custom-button">edit post</a>
-<br>
+  {{#if post.length}}
+  {{#each post as |Post|}}
+
+<div class = "columms custom-columns">
+  <div class = "column is-half is-offset-one-quarter"> 
+    <div class="card custom-card">
+      <br> 
+      
+      <div class = "card-body custom-card-body">
+        <p class="title is-5"> {{Post.title}}</p>
+        <a href="/api/post/{{Post.id}}"> <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}"></a>
+        <p class="is-italic"> created on {{format_date Post.createdAt}} </p>
+        <br>
+        <p> {{Post.body}}</p>
+        <br>
+        <span class="tag is-normal">{{Post.style.style_type}}</span>
+        <br><br>
+        <a href="/profile/edit/{{Post.id}}" class="button is-small custom-button">edit post</a>
+        <br><br>
+      </div>
+    </div>
+  </div>
+</div>
 {{/each}}
-
+  
+  
 {{else}}
-<h1>You have no Posts!</h1>
- {{/if}}
- </div>
- </div>
+<p class="title custom-title">You have no Posts!</p>
+{{/if}}
+
