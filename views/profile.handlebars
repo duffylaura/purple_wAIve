@@ -16,7 +16,7 @@
     <p class="title">{{title}}</p>
     <figure class="image is-4by3"> <img src="{{img_url}}"> </figure>
     <p>{{body}} </p>
-    <p> by {{user.username }} on {{format_date createdAt}} </p>
+    <p> by {{user.username }} on {{format_date createdAt}} </p><a href="/profile/edit/{{id}}" class="button is-link">edit post</a>
     <div class="tags are-normal"> </div><span class="tag is-normal">{{style.style_type}}</span> </div>
   </article>
 {{/each}}

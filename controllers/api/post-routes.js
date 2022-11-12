@@ -4,10 +4,10 @@ const sequelize = require("../../config/connection");
 const auth = require("../../utils/auth");
 // const puppeteer = require("puppeteer");
 //to download image
-var fs = require('fs'),
-  http = require('http'),
-  https = require('https');
-var Stream = require('stream').Transform;
+var fs = require("fs"),
+  http = require("http"),
+  https = require("https");
+var Stream = require("stream").Transform;
 
 // openai api for generation;
 const { Configuration, Openai, OpenAIApi } = require("openai");
@@ -62,14 +62,14 @@ router.get("/:id", async (req, res) => {
     }
     const post = PostData.get({ plain: true });
 
-    console.log(post)
+    console.log(post);
     //converting keywordTags back to array to be displayed
     post.keywords = post.keywords.split(", ");
     console.log(post.keywords);
 
     res.render("singlePost", {
       post,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -95,7 +95,6 @@ router.post("/", auth, async (req, res) => {
     // styleID = JSON.stringify(styleID)
     console.log(styleID.id);
 
-
     // openAI, working commenting out until we need it again//
     const response = await openai.createImage({
       //prompt, we are going to have to parse in the user inputted tag, add Album, and the style
@@ -109,30 +108,32 @@ router.post("/", auth, async (req, res) => {
     console.log(response.data.created + "<--our file name");
     const filename = response.data.created;
     const image_url = response.data.data[0].url;
-    console.log(image_url + "<--for funsies just incase error and we lost the image");
+    console.log(
+      image_url + "<--for funsies just incase error and we lost the image"
+    );
 
     //downloading image from url since expiring 1 hr
 
-
     // Download Image Helper Function
     var downloadImageFromURL = (url, filename, callback) => {
-
       var client = http;
       if (url.toString().indexOf("https") === 0) {
         client = https;
       }
 
-      client.request(url, function (response) {
-        var data = new Stream();
+      client
+        .request(url, function (response) {
+          var data = new Stream();
 
-        response.on('data', function (chunk) {
-          data.push(chunk);
-        });
+          response.on("data", function (chunk) {
+            data.push(chunk);
+          });
 
-        response.on('end', function () {
-          fs.writeFileSync(`./public/assets/dalle/${filename}`, data.read());
-        });
-      }).end();
+          response.on("end", function () {
+            fs.writeFileSync(`./public/assets/dalle/${filename}`, data.read());
+          });
+        })
+        .end();
     };
 
     // Calling Function to Download
@@ -161,10 +162,9 @@ router.post("/", auth, async (req, res) => {
 //   update post
 router.put("/:id", auth, async (req, res) => {
   try {
-    const PostData = Post.update(
+    const PostData = await Post.update(
       {
         title: req.body.title,
-        img_url: req.body.img_url,
         body: req.body.body,
       },
       {
@@ -176,6 +176,7 @@ router.put("/:id", auth, async (req, res) => {
 
     if (!PostData) {
       res.status(404).json({ message: "No post found with this id" });
+
       return;
     }
     res.json(PostData);
