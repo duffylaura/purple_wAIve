@@ -12,11 +12,12 @@
 <div class="card custom-card">
   <p class="title is-5"> {{Post.title}}</p>
   <a href="/api/post/{{Post.id}}"> <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}"></a>
-   <p class="is-italic"> created on {{format_date Post.created_at}} </p>
+   <p class="is-italic"> created on {{format_date Post.createdAt}} </p>
   <p> {{Post.body}}</p>
-  <div class="tags are-normal"> </div><span class="tag is-normal">{{Style.style_type}}</span> </div>
+  <div class="tags are-normal"> </div><span class="tag is-normal">{{Post.style.style_type}}</span> </div>
 </div> 
-  <a href="/profile/edit/{{Post.id}}" class="button is-link">edit post</a>
+<br>
+  <a href="/profile/edit/{{Post.id}}" class="button custom-button">edit post</a>
 <br>
 {{/each}}
 
