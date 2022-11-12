@@ -1,19 +1,21 @@
 {{#if loggedIn}}
 <section class="hero">
-    <img class="image" src="./assets/banner-text-large.png" alt="Logo Banner" />
+    <img class="image" src="./assets/banner-text-large.png" alt="Logo Banner"/>
 </section>
-<div class="column">
-    <div class="mx-6 my-6" {{#each post as |Post|}} >
-        <a href="/api/post/{{Post.id}}">
-        <article class="tile is-4 is-child px-6 py-6">
-            <p class="title is-5 is-centered"> {{Post.title}}</p>
-            <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}" />
-            <p>created by {{Post.user.username}} on {{format_date Post.created_at}}</p>
-        </article> 
-        </a>
-        {{/each}}
-    </div>
+
+<div class = "column px-6 py-6">
+{{#each post as |Post|}}
+    <div class="card custom-card">
+        <p class="title is-5"> {{Post.title}}</p>
+        <a href="/api/post/{{Post.id}}"> <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}"></a>
+        <p class="is-italic"> created by {{Post.user.username}} on {{format_date Post.created_at}} </p>
+        <p> {{Post.body}}</p>
+    </div> 
+    <br>
+{{/each}}
 </div>
+
+
 {{else}}
 <section class="hero">
     <img class="image" src="./assets/banner-text-large.png" alt="Logo Banner" />
