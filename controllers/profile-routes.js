@@ -44,7 +44,12 @@ router.get("/edit/:id", auth, async (req, res) => {
       where: {
         id: req.params.id,
       },
+
       include: [
+        {
+          model: Style,
+          attributes: ["id", "style_type"],
+        },
         {
           model: User,
           attributes: ["username"],
@@ -54,7 +59,7 @@ router.get("/edit/:id", auth, async (req, res) => {
 
     const editPostData = editSinglePostData.get({ plain: true });
     console.log(editPostData, "test");
-    res.render("post-edit", {
+    res.render("edit-post", {
       editPostData,
       logged_in: req.session.logged_in,
     });
