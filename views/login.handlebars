@@ -1,29 +1,30 @@
-<div class = "columms custom-columns">
-  <div class = "column is-half is-offset-one-quarter"> 
-     <div class = "column is-half is-offset-one-quarter"> 
-      <img class="image logo" src="./assets/logo-clear-background.png" alt="purple wAIve logo"/> </div>
+<div class="columms custom-columns">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="column is-half is-offset-one-quarter">
+      <img class="image logo" src="./assets/logo-clear-background.png" alt="purple wAIve logo" />
     </div>
   </div>
 </div>
-<div class = "login-space">
-  <h1 class = "title is-3"> Login</h1> 
+</div>
+<div class="login-space">
+  <h1 class="title is-3"> Login</h1>
 </div>
 <div class="card">
   <form class="card-content" id="login-form">
     <div class="field">
       <label class="label">Email</label>
-        <div class="control">
-          <input id="email" class="input custom-input" type="email" placeholder="e.g. rockNroll@gmail.com" />
-        </div>
+      <div class="control">
+        <input id="email" class="input custom-input" type="email" placeholder="e.g. rockNroll@gmail.com" />
+      </div>
     </div>
 
     <div class="field">
       <label class="label">Password</label>
-        <div class="control">
-          <input id="pw" class="input custom-input" type="password" placeholder="at least 8 characters" />
-        </div>
+      <div class="control">
+        <input id="pw" class="input custom-input" type="password" placeholder="at least 8 characters" />
+      </div>
     </div>
-    <br> 
+    <br>
     <div class="field is-grouped">
       <div class="control">
         <button id="loginBtn" class="button custom-button" type="submit"><strong>ride the wAIve</strong></button>
@@ -50,4 +51,22 @@
     </section>
   </div>
 </div>
+{{!-- modal for redirect --}}
+<div class="modal" id="redirect">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+    <lord-icon src="https://cdn.lordicon.com/kvsszuvz.json" trigger="loop" colors="primary:#ebc6fe,secondary:#08a88a"
+      stroke="80" scale="80" style="width:150px;height:150px">
+    </lord-icon>
+    <header class="modal-card-head custom-modal-header"></header>
+    <section class="modal-card-body custom-modal-body">
+      <p id="redirMsg"></p>
+      <div class="level-right">
+        <button class="button ok-btn custom-btn" id="redirBtn">click here to redirect</button>
+      </div>
+    </section>
+  </div>
+</div>
+
 <script src="/js/login.js"></script>

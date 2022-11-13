@@ -20,9 +20,12 @@ const loginFormHandler = async (event) => {
       console.log(await response.json());
       loginValidation();
       return;
-    } else {
+    }
+    else {
       // If successful, redirect the browser to the homepage page
-      document.location.replace("/");
+      // document.location.replace("/");
+      loginRedir();
+      return;
     }
   }
 };
@@ -36,6 +39,23 @@ const loginValidation = () => {
   modalTextEl.textContent = "incorrect login credentials";
   modalOKBtn.addEventListener("click", function () {
     modalEl.classList.remove("is-active");
+  });
+};
+
+//when the user clicks the login button the login function is triggered
+document.querySelector("#loginBtn").addEventListener("click", loginFormHandler);
+
+
+//function to display an error modal if the user inputts an incorrect password or email
+const loginRedir = () => {
+  const modalOKBtn = document.querySelector("#redirBtn");
+  const modalTextEl = document.querySelector("#redirMsg");
+  const modalEl = document.querySelector("#redirect");
+  modalEl.classList.add("is-active");
+  modalTextEl.textContent = "Welcome Back!";
+  modalOKBtn.addEventListener("click", function () {
+    modalEl.classList.remove("is-active")
+    window.location.assign("/");
   });
 };
 
