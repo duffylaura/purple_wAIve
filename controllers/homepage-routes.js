@@ -10,19 +10,11 @@ router.get("/", async (req, res) => {
       attributes: ["id", "title", "img_url", "body", "created_at", "user_id"],
       include: [
         {
-          model: Comment,
-          attributes: ["id", "text", "post_id", "user_id", "created_at"],
-          include: {
-            model: User,
-            attributes: ["username"],
-          },
-          include: {
-            model: User,
-            attributes: ["id", "username"],
-          },
-        },
-      ],
+          model: User,
+          attributes: ["id", "username"],
+        }],
     });
+
     //map goes over the allPostData array at each position and gets just the datavalues for the  post. and then we serialize the data with post.get so only the datavalues we want to see will show up
     const post = allPostData.map((post) => post.get({ plain: true }));
     console.log(post, "test");
