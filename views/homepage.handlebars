@@ -3,18 +3,26 @@
     <img class="image" src="./assets/banner-text-large.png" alt="Logo Banner"/>
 </section>
 
-<div class = "column px-6 py-6">
-{{#each post as |Post|}}
-    <div class="card custom-card">
-        <p class="title is-5"> {{Post.title}}</p>
-        <a href="/api/post/{{Post.id}}"> <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}"></a>
-        <p class="is-italic"> created by {{Post.user.username}} on {{format_date Post.created_at}} </p>
-        <p> {{Post.body}}</p>
-    </div> 
-    <br>
-{{/each}}
-</div>
 
+{{#each post as |Post|}}
+<div class = "columms custom-columns">
+  <div class = "column is-half is-offset-one-quarter"> 
+    <div class = "column is-half is-offset-one-quarter">
+      <div class="card custom-card">
+        <br> 
+        <div class = "card-body custom-card-body">
+          <p class="title is-5"> {{Post.title}}</p>
+          <a href="/api/post/{{Post.id}}"> <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}"></a>
+          <p class="is-italic"> created by {{Post.user.username}} on {{format_date Post.createdAt}} </p>
+          <br>
+          <p> {{Post.body}}</p>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
 
 {{else}}
 <section class="hero">
@@ -24,17 +32,17 @@
     <article class="tile is-4 is-child px-6 py-6">
         <p class="title is-5 is-centered"> {{post1.title}}</p>
         <img class="image" src="{{post1.img_url}}" alt="{{post1.title}}" />
-        <p>created by {{post1.user.username}} on {{format_date post1.created_at}}</p>
+        <p>created by {{post1.user.username}} on {{format_date post1.createdAt}}</p>
     </article>
     <article class="tile is-4 is-child px-6 py-6">
         <p class="title is-5 is-centered"> {{post2.title}}</p>
         <img class="image" src="{{post2.img_url}}" alt="{{post2.title}}" />
-        <p>created by {{post2.user.username}} on {{format_date post2.created_at}}</p>
+        <p>created by {{post2.user.username}} on {{format_date post2.createdAt}}</p>
     </article>
     <article class="tile is-4 is-child px-6 py-6">
         <p class="title is-5 is-centered"> {{post3.title}}</p>
         <img class="image" src="{{post3.img_url}}" alt="{{post3.title}}" />
-        <p>created by {{post3.user.username}} on {{format_date post3.created_at}}</p>
+        <p>created by {{post3.user.username}} on {{format_date post3.createdAt}}</p>
     </article>
 </div>
 <br>
@@ -44,12 +52,12 @@
     <article class="tile is-4 is-child px-6 py-6">
         <p class="title is-5 is-centered"> {{post4.title}}</p>
         <img class="image" src="{{post4.img_url}}" alt="{{post4.title}}" />
-        <p>created by {{post4.user.username}} on {{format_date post4.created_at}}</p>
+        <p>created by {{post4.user.username}} on {{format_date post4.createdAt}}</p>
     </article>
     <article class="tile is-4 is-child px-6 py-6">
         <p class="title is-5 is-centered"> {{post5.title}}</p>
         <img class="image" src="{{post5.img_url}}" alt="{{post5.title}}" />
-        <p>created by {{post5.user.username}} on {{format_date post5.created_at}}</p>
+        <p>created by {{post5.user.username}} on {{format_date post5.createdAt}}</p>
     </article>
     <article class="tile is-4 is-child px-6 py-6">
         <br>
