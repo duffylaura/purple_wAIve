@@ -10,7 +10,7 @@
 }
 
 .custom-button {
-    background: rgba(193, 86, 247, 0.4);
+    background: rgba(235, 198, 254, 0.832);
     box-shadow: 0px 4px 4px #F2FAA3;
 }
 .custom-tile {
@@ -21,6 +21,38 @@
 .custom-title {
     color: #EBC6FE;
     text-align: center;
+}
+
+.custom-card-create{
+    padding: 20px; 
+    filter: drop-shadow(0px 10px 10px #EBC6FE);
+}
+
+.create-input {
+    background-color: #bfc5ff65;
+}
+
+.logo{
+    width: 340px;
+    height: 226px;  
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.keyword {
+    background-color: #F2FAA3;
+    box-shadow: 0px 4px 4px #bfc5ff65;
+}
+
+.tag-button {
+    background-color: #ebc6fe6c;
+}
+
+.purple-glow{
+    filter: drop-shadow(0px 10px 10px #EBC6FE);    
+}
+
+.custom-card {
+    filter: drop-shadow(0px 10px 10px #EBC6FE);
 }
 
 @media screen and (min-width: 1023px) {
@@ -35,7 +67,7 @@
         width: 512px;
         margin-top: 20px; 
         margin-bottom: 20px; 
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        filter: drop-shadow(0px 10px 10px #EBC6FE);
     }
 
     .custom-card-body {

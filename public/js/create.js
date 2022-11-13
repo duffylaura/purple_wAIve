@@ -45,7 +45,7 @@ const addTag = (e) => {
   console.log(keyword);
   //making new container to store that, with bulma class
   let newTag = document.createElement("span");
-  newTag.classList.add("tag", "is-warning", "is-medium");
+  newTag.classList.add("tag", "custom-tag","is-medium");
   //adding the content
   newTag.innerHTML = `${tag}`;
   //appending to display;
