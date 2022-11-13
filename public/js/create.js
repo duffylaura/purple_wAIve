@@ -28,7 +28,8 @@ const createPostForm = async (e) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      document.location.replace("/profile");
+      createRedir();
+      return;
     } else {
       alert("post creation failed, please try again");
     }
@@ -60,6 +61,19 @@ const resetTag = (e) => {
   keyword = [];
   postTag.value = "";
   tagDisp.innerHTML = "";
+};
+
+//function to display an error modal if the user inputts an incorrect password or email
+const createRedir = () => {
+  const modalOKBtn = document.querySelector("#redirBtn");
+  const modalTextEl = document.querySelector("#redirMsg");
+  const modalEl = document.querySelector("#redirect");
+  modalEl.classList.add("is-active");
+  modalTextEl.textContent = "Redirecting to your profile :)";
+  modalOKBtn.addEventListener("click", function () {
+    modalEl.classList.remove("is-active")
+    window.location.assign("/profile");
+  });
 };
 
 resetBtn.addEventListener("click", resetTag);
