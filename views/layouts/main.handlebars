@@ -22,29 +22,29 @@
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
+    </div>
 
 
-      <div id="navbar-mobile" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item" href="/profile"> Profile </a>
-          <a class="navbar-item" href="/create"> Create </a>
-          {{#if loggedIn}}
-          {{> styleSearch}}
-          {{/if}}
-        </div>
+    <div id="navbar-mobile" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/profile"> Profile </a>
+        <a class="navbar-item" href="/create"> Create </a>
+        {{#if loggedIn}}
+        {{> styleSearch}}
+        {{/if}}
+      </div>
 
 
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <div class="justify-content:flex-end">
-                {{#if loggedIn}}
-                <a href="/" id="logoutBtn" class="button custom-button"> Log Out </a>
-                {{else}}
-                <a class="button custom-button" href="/login"> Log In </a>
-                <a class="button custom-button" href="/signup"> Sign Up </a>
-                {{/if}}
-              </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <div class="justify-content:flex-end">
+              {{#if loggedIn}}
+              <a href="/" id="logoutBtn" class="button custom-button"> Log Out </a>
+              {{else}}
+              <a class="button custom-button" href="/login"> Log In </a>
+              <a class="button custom-button" href="/signup"> Sign Up </a>
+              {{/if}}
             </div>
           </div>
         </div>
