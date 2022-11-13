@@ -1,79 +1,82 @@
-<div class="card">
-    <form class="card-content" id="create-form">
-        <p>Create your next post!</p>
-        {{!-- field for title, user inputted text --}}
-        <div class="field">
-            <label class="label">Title</label>
-            <div class="control">
-                <input id="song-title" class="input" type="title" placeholder="Yellow Submarine - Beatles" />
+{{#if loggedIn}}
+<br><br>
+<div class = "columms custom-columns">
+  <div class = "column is-half is-offset-one-quarter"> 
+      <div class="card custom-card-create">
+            <form class="form"id="create-form">
+            <p class="title custom-title">Create your next post!</p>
+            <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                <input id="song-title" class="input create-input" type="title" placeholder="Yellow Submarine - Beatles" />
+                </div>
             </div>
-        </div>
-        {{!-- field to input tags for generation --}}
-        <div class="field">
-            <label class="label">Keywords</label>
-            <div class="control">
-                <input id="input-tags" class="input" type="text" data-type="tags"
-                    placeholder="provide a keyword of how you feel, press `+AddTag+` to see the tag added below!" />
+            <div class="field">
+                <label class="label">Keywords</label>
+                <div class="control">
+                    <input id="input-tags" class="input create-input" type="text" data-type="tags" placeholder="provide a keyword of how you feel, press `+AddTag+` to see the tag added below!" />
+                </div> 
+                <br>
+                <button id="add-tag" class="button is-small tag-button">+AddTag+</button>
+                <button id="reset-tag" class="button is-small tag-button">+ResetTag+</button>
+                <br>
             </div>
-            <button id="add-tag" class="button is-ghost">+AddTag+</button>
-            <button id="reset-tag" class="button is-ghost">+ResetTag+</button>
-        </div>
-        <div class="tags" id="tags-display">
-            <p>KeyWords to be used: </p>
-        </div>
-        <br\>
-            {{!-- drop down for style --}}
+            <div class="column keyword">
+                <p>KeyWords to be used: </p>
+                <div id="tags-display"></div>
+            </div>
+            <br>
             <div class="field">
                 <label class="label">Style</label>
-                <div class="control">
-                    <div class="select">
-                        <select id="style">
-                            <option>Select style</option>
-                            <option>3D render</option>
-                            <option>Abstract</option>
-                            <option>Anime</option>
-                            <option>Art deco</option>
-                            <option>Art nouveau</option>
-                            <option>Ballpoint pen</option>
-                            <option>Charcoal sketch</option>
-                            <option>Crayon</option>
-                            <option>Dadaism</option>
-                            <option>Disney</option>
-                            <option>Expressionism</option>
-                            <option>Impressionism</option>
-                            <option>Isometric 3D</option>
-                            <option>Nightmare Before Christmas</option>
-                            <option>Oil painting</option>
-                            <option>Pixar</option>
-                            <option>Pixel art</opotion>
-                            <option>Pop Art</option>
-                            <option>Roman mosaic</option>
-                            <option>Scientific diagram</option>
-                            <option>Stensil</option>
-                            <option>Storybook</option>
-                            <option>Studio Ghibli</option>
-                            <option>Ukiyo-e</option>
-                            <option>Watercolor</option>
-                        </select>
+                    <div class="control">
+                        <div class="select">
+                            <select id="style">
+                                <option>Select style</option>
+                                <option>3D render</option>
+                                <option>Abstract</option>
+                                <option>Anime</option>
+                                <option>Art deco</option>
+                                <option>Art nouveau</option>
+                                <option>Ballpoint pen</option>
+                                <option>Charcoal sketch</option>
+                                <option>Crayon</option>
+                                <option>Dadaism</option>
+                                <option>Disney</option>
+                                <option>Expressionism</option>
+                                <option>Impressionism</option>
+                                <option>Isometric 3D</option>
+                                <option>Nightmare Before Christmas</option>
+                                <option>Oil painting</option>
+                                <option>Pixar</option>
+                                <option>Pixel art</opotion>
+                                <option>Pop Art</option>
+                                <option>Roman mosaic</option>
+                                <option>Scientific diagram</option>
+                                <option>Stensil</option>
+                                <option>Storybook</option>
+                                <option>Studio Ghibli</option>
+                                <option>Ukiyo-e</option>
+                                <option>Watercolor</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Body</label>
-                <div class="control">
-                    <input id="postBody" class="input" type="test"
-                        placeholder="Write a sentence on how this song makes you feel" />
+                <div class="field">
+                    <label class="label">Body</label>
+                    <div class="control">
+                        <input id="postBody" class="input create-input" type="test" placeholder="Write a sentence on how this song makes you feel" />
+                    </div>
                 </div>
-            </div>
-            <div class="field is-grouped">
-                <div class="control">
-                    <button id="signupBtn" class="button is-link" type="submit">
-                        Send a purple wAIve
-                    </button>
+                <div class="field is-grouped">
+                    <div class="control"><button id="signupBtn" class="button custom-button" type="submit"><strong> Send a purple wAIve </strong></button></div>
                 </div>
+            </form>
+            <div class = "column is-half is-offset-one-quarter"> 
+                <img class="image logo" src="/assets/logo-clear-background.png" alt="Logo">
             </div>
-    </form>
+        </div>
+    </div>
 </div>
+{{/if}}
 
 <script src=" /js/create.js"></script>
