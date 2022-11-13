@@ -1,3 +1,4 @@
+{{#if loggedIn}}
 <br><br>
 <div class = "columms custom-columns">
   <div class = "column is-half is-offset-one-quarter"> 
@@ -20,8 +21,9 @@
                 <button id="reset-tag" class="button is-small tag-button">+ResetTag+</button>
                 <br>
             </div>
-            <div class="tags keyword" id="tags-display">
+            <div class="column keyword">
                 <p>KeyWords to be used: </p>
+                <div id="tags-display"></div>
             </div>
             <br>
             <div class="field">
@@ -70,10 +72,11 @@
                 </div>
             </form>
             <div class = "column is-half is-offset-one-quarter"> 
-                <image class="image logo" src="/assets/logo-clear-background.png" alt="Logo">
+                <img class="image logo" src="/assets/logo-clear-background.png" alt="Logo">
             </div>
         </div>
     </div>
 </div>
+{{/if}}
 
 <script src=" /js/create.js"></script>
