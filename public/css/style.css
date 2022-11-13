@@ -64,6 +64,34 @@
     margin-left: 2%; 
 }
 
+.is-right-justified {
+    text-align: right;
+}
+
+.comments-card {
+    height: fit-content;
+    width: 512px;
+    padding: 10%;
+    filter: drop-shadow(0px 10px 10px #EBC6FE);
+}
+
+.single-post-image{
+    height: fit-content;
+    filter: drop-shadow(0px 10px 10px #EBC6FE);
+}
+
+.is-centered{
+    text-align:center;
+    padding-top: 2%;
+}
+
+.socials-card {
+    height: fit-content;
+    width: fit-content;
+    padding: 1%;
+    filter: drop-shadow(0px 10px 10px #F2FAA3);
+}
+
 @media screen and (min-width: 1023px) {
     .custom-image{
         width: 512px;

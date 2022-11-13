@@ -1,83 +1,72 @@
-<div class="px-6">
-  <div class="tile is-ancestor">
-    <div class="tile is-vertical">
-      <div class="tile">
-
-        <div class="tile is-parent">
-          <article class="tile is-child">
-            <img src="{{post.img_url}}" alt="{{post.title}}" />
-            <img src="{{post.img_url}}" alt="{{post.title}}" />
-
-
-
-          </article>
+<br><br>
+<div class="columns">
+  <div class="column">
+    <div class = "column is-11 is-offset-1">
+      <div class ="card single-post-image">
+        <img class="image" src="{{post.img_url}}" alt="{{post.title}}" />
+      </div>
+      <br>
+      <br>
+      <div class="is-flex is-justify-content-center">
+        <div class = "card socials-card">
+          <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-icon-color="#EBC6FE">
+            <a class="a2a_button_facebook"></a>
+            <a class="a2a_button_twitter"></a>
+            <a class="a2a_button_whatsapp a2a_counter"></a>
+            <a class="a2a_button_reddit a2a_counter"></a>
+          </div>
         </div>
-
-        <div class="tile is-parent is-vertical">
-          <article class="tile is-child">
-            <p class="title is-3"> {{post.title}}</p>
-            <p class="is-italic">created by {{post.user.username}} on {{format_date post.created_at}}</p>
-            <p> {{post.body}}</p>
-
-            <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-              <a class="a2a_button_facebook"></a>
-              <a class="a2a_button_twitter"></a>
-              <a class="a2a_button_whatsapp a2a_counter"></a>
-              <a class="a2a_button_reddit a2a_counter"></a>
-
-            </div>
-            </section>
-          </article>
-
-          <article class="title is-child notification is-link is-light">
-            {{#each post.keywords as |Tag|}}
-            <p>#</p>
-            <span class="tag is-link is-light"> {{Tag}}</span>
-            {{/each}}
-          </article>
-        </div>
-
       </div>
     </div>
   </div>
-</div>
-{{#each post.comments as |comment|}}
-<article class="media">
-  <figure class="media-left"></figure>
-  <div class="media-content">
-    <div class="content">
-      <p>
-        <strong>{{comment.user.username}}</strong>
-        <br />
-        {{comment.text}}
-        <br />
-        <small><a>Like</a> · <a>Reply</a> · {{format_date
-          comment.created_at}}</small>
-      </p>
-    </div>
-  </div>
-</article>
-{{/each}}
-{{#if loggedIn}}
-<article class="media">
-  <figure class="media-left"></figure>
-  <div class="media-content">
-    <div class="field">
-      <p class="control">
-        <textarea class="textarea" placeholder="Add a comment..."></textarea>
-      </p>
-    </div>
-    <div class="field">
-      <p class="control">
-        <button id="commentBtn" class="button">Post comment</button>
-      </p>
-    </div>
-  </div>
-</article>
-{{/if}}
 
-{{!--
-<script src="/js/edit-post.js"> </script> --}}
+  <div class="column">
+
+      <div class ="card comments-card">
+        <p class="title is-3"> {{post.title}}</p>
+        <p class="is-italic">created by {{post.user.username}} on {{format_date post.created_at}}</p>
+        <br>
+        <p> {{post.body}}</p>
+        <br>
+        <div class="keyword is-centered">
+          {{#each post.keywords as |Tag|}}
+            <span class="tag is-success is-light"> #{{Tag}}</span>
+          {{/each}}
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class ="card comments-card">
+        <p class = "title is-3 is-right-justified"> comments </p>
+          {{#each post.comments as |comment|}}
+            <article class="media">
+              <figure class="media-right"></figure>
+                <div class="media-content">
+                  <div class="content">
+                    <p> <strong>{{comment.user.username}}</strong> <br /> {{comment.text}} <br /><small><a>Like</a> · <a>Reply</a> · {{format_date comment.created_at}}</small></p>
+                  </div>
+                </div>
+            </article>
+          {{/each}}
+
+          {{#if loggedIn}}
+            <article class="media">
+              <figure class="media-right"></figure>
+                <div class="media-content">
+                  <div class="field">
+                    <p class="control"><textarea class="textarea" placeholder="Add a comment..."></textarea></p>
+                  </div>
+                  <div class="field">
+                    <p class="control"> <button id="commentBtn" class="button green-glow is-right-justified">Post comment.</button></p>
+                  </div>
+                </div>
+            </article>
+          {{/if}}
+      </div>
+    </div>
+</div>
+
+
 {{#if loggedIn}}
-<script src="/js/comment.js"></script>
+  <script src="/js/comment.js"></script>
 {{/if}}
