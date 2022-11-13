@@ -1,32 +1,34 @@
 <br><br>
-<div class = "columms custom-columns">
-  <div class = "column is-half is-offset-one-quarter"> 
-      <div class="card custom-card-create">
-            <form class="form"id="create-form">
-            <p class="title custom-title">Create your next post!</p>
-            <div class="field">
-                <label class="label">Title</label>
-                <div class="control">
-                <input id="song-title" class="input create-input" type="title" placeholder="Yellow Submarine - Beatles" />
+<div class="columms custom-columns">
+    <div class="column is-half is-offset-one-quarter">
+        <div class="card custom-card-create">
+            <form class="form" id="create-form">
+                <p class="title custom-title">Create your next post!</p>
+                <div class="field">
+                    <label class="label">Title</label>
+                    <div class="control">
+                        <input id="song-title" class="input create-input" type="title"
+                            placeholder="Yellow Submarine - Beatles" />
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">Keywords</label>
-                <div class="control">
-                    <input id="input-tags" class="input create-input" type="text" data-type="tags" placeholder="provide a keyword of how you feel, press `+AddTag+` to see the tag added below!" />
-                </div> 
+                <div class="field">
+                    <label class="label">Keywords</label>
+                    <div class="control">
+                        <input id="input-tags" class="input create-input" type="text" data-type="tags"
+                            placeholder="provide a keyword of how you feel, press `+AddTag+` to see the tag added below!" />
+                    </div>
+                    <br>
+                    <button id="add-tag" class="button is-small tag-button">+AddTag+</button>
+                    <button id="reset-tag" class="button is-small tag-button">+ResetTag+</button>
+                    <br>
+                </div>
+                <div class="column keyword">
+                    <p>KeyWords to be used: </p>
+                    <div id="tags-display"></div>
+                </div>
                 <br>
-                <button id="add-tag" class="button is-small tag-button">+AddTag+</button>
-                <button id="reset-tag" class="button is-small tag-button">+ResetTag+</button>
-                <br>
-            </div>
-            <div class="column keyword">
-                <p>KeyWords to be used: </p>
-                <div id="tags-display"></div>
-            </div>
-            <br>
-            <div class="field">
-                <label class="label">Style</label>
+                <div class="field">
+                    <label class="label">Style</label>
                     <div class="control">
                         <div class="select">
                             <select id="style">
@@ -63,17 +65,37 @@
                 <div class="field">
                     <label class="label">Body</label>
                     <div class="control">
-                        <input id="postBody" class="input create-input" type="test" placeholder="Write a sentence on how this song makes you feel" />
+                        <input id="postBody" class="input create-input" type="test"
+                            placeholder="Write a sentence on how this song makes you feel" />
                     </div>
                 </div>
                 <div class="field is-grouped">
-                    <div class="control"><button id="signupBtn" class="button custom-button" type="submit"><strong> Send a purple wAIve </strong></button></div>
+                    <div class="control"><button id="signupBtn" class="button custom-button" type="submit"><strong> Send
+                                a purple wAIve </strong></button></div>
                 </div>
             </form>
-            <div class = "column is-half is-offset-one-quarter"> 
+            <div class="column is-half is-offset-one-quarter">
                 <img class="image logo" src="/assets/logo-clear-background.png" alt="Logo">
             </div>
         </div>
+    </div>
+</div>
+
+{{!-- modal for redirect --}}
+<div class="modal" id="redirect">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+        <lord-icon src="https://cdn.lordicon.com/kvsszuvz.json" trigger="loop"
+            colors="primary:#ebc6fe,secondary:#08a88a" stroke="80" scale="80" style="width:150px;height:150px">
+        </lord-icon>
+        <header class="modal-card-head custom-modal-header"></header>
+        <section class="modal-card-body custom-modal-body">
+            <p id="redirMsg"></p>
+            <div class="level-right">
+                <button class="button ok-btn custom-btn" id="redirBtn">click here to redirect</button>
+            </div>
+        </section>
     </div>
 </div>
 
