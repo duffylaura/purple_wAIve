@@ -6,8 +6,9 @@
         <div class="tile is-parent">
           <article class="tile is-child">
             <img src="{{post.img_url}}" alt="{{post.title}}" />
-        
-          
+            <img src="{{post.img_url}}" alt="{{post.title}}" />
+
+
 
           </article>
         </div>
@@ -17,15 +18,15 @@
             <p class="title is-3"> {{post.title}}</p>
             <p class="is-italic">created by {{post.user.username}} on {{format_date post.created_at}}</p>
             <p> {{post.body}}</p>
-             
-             <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-    <a class="a2a_button_facebook"></a>
-    <a class="a2a_button_twitter"></a>
-<a class="a2a_button_whatsapp a2a_counter"></a>
-    <a class="a2a_button_reddit a2a_counter"></a>
-  
-</div>
-             </section>
+
+            <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+              <a class="a2a_button_facebook"></a>
+              <a class="a2a_button_twitter"></a>
+              <a class="a2a_button_whatsapp a2a_counter"></a>
+              <a class="a2a_button_reddit a2a_counter"></a>
+
+            </div>
+            </section>
           </article>
 
           <article class="title is-child notification is-link is-light">
@@ -50,15 +51,13 @@
         <br />
         {{comment.text}}
         <br />
-        <small
-          ><a>Like</a> · <a>Reply</a> · {{format_date
-          comment.created_at}}</small
-        >
+        <small><a>Like</a> · <a>Reply</a> · {{format_date
+          comment.created_at}}</small>
       </p>
     </div>
   </div>
 </article>
-{{/each}} 
+{{/each}}
 {{#if loggedIn}}
 <article class="media">
   <figure class="media-left"></figure>
@@ -77,7 +76,8 @@
 </article>
 {{/if}}
 
-{{!-- <script src="/js/edit-post.js"> </script> --}}
+{{!--
+<script src="/js/edit-post.js"> </script> --}}
 {{#if loggedIn}}
 <script src="/js/comment.js"></script>
 {{/if}}
