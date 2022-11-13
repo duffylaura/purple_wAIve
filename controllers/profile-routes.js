@@ -74,6 +74,7 @@ router.get("/edit/:id", auth, async (req, res) => {
     });
 
     const editPostData = editSinglePostData.get({ plain: true });
+    editPostData.keywords = editPostData.keywords.split(', ')
     console.log(editPostData, "test");
     res.render("edit-post", {
       editPostData,
