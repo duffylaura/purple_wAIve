@@ -45,7 +45,7 @@ const addTag = (e) => {
   console.log(keyword);
   //making new container to store that, with bulma class
   let newTag = document.createElement("span");
-  newTag.classList.add("tag","is-medium");
+  newTag.classList.add("tag", "is-medium");
   //adding the content
   newTag.innerHTML = ` ${tag} `;
   //appending to display;
@@ -59,7 +59,7 @@ const resetTag = (e) => {
 
   keyword = [];
   postTag.value = "";
-  tagDisp.innerHTML = "<p>KeyWords to be used: </p>";
+  tagDisp.innerHTML = "";
 };
 
 resetBtn.addEventListener("click", resetTag);
