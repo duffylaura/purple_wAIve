@@ -116,3 +116,8 @@
     height: fit-content;
   }
 }
+
+.lord-icon {
+  width: 50%;
+  margin: 0 auto;
+}
