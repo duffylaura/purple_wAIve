@@ -75,27 +75,24 @@ Licensed under the MIT license.[License details here](https://opensource.org/lic
 - [Linkedin](https://www.linkedin.com/in/chris-gibson-415909250/)
 - [Portfolio](https://chrischarlesgibson.github.io/Chris-Gibson-project-portfolio/)
 
-
 **Laura Duffy**
 
 - [GitHub]()
 - [Linkedin]()
 - [Portfolio]()
 
-
 **Mari Ma**
 
-[<img src="https://cdn.icon-icons.com/icons2/2351/PNG/512/logo_github_icon_143196.png" alt='github' height='40'>](https://github.com/DraconMarius) 
-[<img src="https://cdn.icon-icons.com/icons2/2351/PNG/512/logo_linkedin_icon_143191.png" alt='linkedin' height='40'>](https://www.linkedin.com/in/mari-ma-70771585/)  
+[<img src="https://cdn.icon-icons.com/icons2/2351/PNG/512/logo_github_icon_143196.png" alt='github' height='40'>](https://github.com/DraconMarius)
+[<img src="https://cdn.icon-icons.com/icons2/2351/PNG/512/logo_linkedin_icon_143191.png" alt='linkedin' height='40'>](https://www.linkedin.com/in/mari-ma-70771585/)
 
 [Icon credit @ Anton Kalashnyk](https://icon-icons.com/users/14quJ7FM9cYdQZHidnZoM/icon-sets/)
 
-
 **Akash Chanara**
 
-- [GitHub]()
-- [Linkedin]()
-- [Portfolio]()
+- [GitHub](https://github.com/akash2040)
+- [Linkedin](https://www.linkedin.com/in/akash-chanara-087b531ab)
+- [Portfolio](https://akash2040.github.io/portfolio-akash/)
 
 ## Contributing Guidlines
 
