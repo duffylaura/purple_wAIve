@@ -23,6 +23,11 @@
   text-align: center;
 }
 
+.custom-textarea {
+  border-color:rgba(193, 86, 247, 0.4);
+  background-color: #ebc6fe63;
+}
+
 .profile-title {
   color: black;
   text-align: center;
