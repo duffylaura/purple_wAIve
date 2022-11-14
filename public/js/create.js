@@ -37,7 +37,7 @@ const createPostForm = async (e) => {
       createRedir();
       return;
     } else {
-      alert("post creation failed, please try again");
+      explicitModal();
     }
   }
 };
@@ -85,3 +85,14 @@ const createRedir = () => {
 resetBtn.addEventListener("click", resetTag);
 addTagButton.addEventListener("click", addTag);
 createForm.addEventListener("submit", createPostForm);
+
+//function to pop up modal if user entered something that dalle considers explicit and create doesnt work
+
+const explicitModal = () => {
+  const ExpOKButton = document.querySelector("#ExpOKBtn");
+  const modalExp = document.querySelector("#modalExplicit");
+  modalExp.classList.add("is-active");
+  ExpOKButton.addEventListener("click", function () {
+    modalExp.classList.remove("is-active");
+  });
+};
