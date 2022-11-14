@@ -4,12 +4,16 @@ const signupFormHandler = async (event) => {
 
   console.log("clicked signup");
   //selecting the popup modal element in the signup handle bars
-  const modalEl = document.querySelector(".modal");
+  const modalPw = document.querySelector("#PwModal");
+  const modalEmail = document.querySelector("#emailModal");
   //calling on the email and password validation functions.
   emailValidation();
   passwordValidation();
   //if one these functions add "is-active" class to the modal element then return (ie stop the signupformhandler function here)
-  if (modalEl.classList.contains("is-active")) {
+  if (modalPw.classList.contains("is-active")) {
+    return;
+  }
+  if (modalEmail.classList.contains("is-active")) {
     return;
   } else {
     //if neither these functions add "is-active" class then proceed with signup function and select the values inputted by the user
@@ -31,6 +35,7 @@ const signupFormHandler = async (event) => {
       //if response is a  not success then stop else ho to homepage
       if (!response.ok) {
         duplicateCheck();
+        console.log(await response.json());
         return;
       } else {
         document.location.replace("/");
@@ -42,17 +47,15 @@ const signupFormHandler = async (event) => {
 //email validation function that checks that the value that the user inputted into the email field follows standard email syntax
 const emailValidation = () => {
   const emailV = document.querySelector("#signupEmail").value.trim();
-  const modalOKBtn = document.querySelector(".ok-btn");
-  const modalTextEl = document.querySelector("#user-valid");
-  const modalEl = document.querySelector(".modal");
+  const modalEmailOKBtn = document.querySelector("#emailOKBtn");
+  const modalEmail = document.querySelector("#emailModal");
   //declaring regex variable to test if the inputted email does meet the standard email syntax
   const regex = /\S+@\S+\.\S+/;
   if (regex.test(emailV) !== true) {
     // if email does not meet the standards, then unhide modal
-    modalEl.classList.add("is-active");
-    modalTextEl.textContent = "Please enter a valid email ";
-    modalOKBtn.addEventListener("click", function () {
-      modalEl.classList.remove("is-active");
+    modalEmail.classList.add("is-active");
+    modalEmailOKBtn.addEventListener("click", function () {
+      modalEmail.classList.remove("is-active");
     });
   }
 };
@@ -61,9 +64,9 @@ const emailValidation = () => {
 const passwordValidation = () => {
   const passwordV = document.querySelector("#signupPW").value.trim();
 
-  const modalOKBtn = document.querySelector(".ok-btn");
-  const modalTextEl = document.querySelector("#user-valid");
-  const modalEl = document.querySelector(".modal");
+  const PWmodalOKBtn = document.querySelector("#PWmodalOK");
+
+  const modalPw = document.querySelector("#PwModal");
   //declaring regex variable to test if the inputted password does meet the strong password criteria
   let goodPassword = new RegExp(
     "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})"
@@ -71,25 +74,24 @@ const passwordValidation = () => {
 
   if (goodPassword.test(passwordV) !== true) {
     // if email does not meet the standards, then unhide modal
-    modalEl.classList.add("is-active");
-    modalTextEl.textContent =
-      "Please enter a password with  at least one lowercase letter , one uppercase letter , one digit , one special character , and is at least eight characters long. ";
-    modalOKBtn.addEventListener("click", function () {
-      modalEl.classList.remove("is-active");
+    modalPw.classList.add("is-active");
+
+    PWmodalOKBtn.addEventListener("click", function () {
+      modalPw.classList.remove("is-active");
     });
   }
 };
 
-//function to check if the username already exists and if does give them a pop up modal saying that
+// function to check if the username already exists and if does give them a pop up modal saying that
 
 const duplicateCheck = () => {
-  const modalOKBtn = document.querySelector(".ok-btn");
-  const modalEl = document.querySelector("#dupCheck");
+  const dupOKBtn = document.querySelector("#dupOkBtn");
+  const modalDuplicate = document.querySelector("#dupCheck");
 
   // if email or password is already taken  then unhide modal
-  modalEl.classList.add("is-active");
-  modalOKBtn.addEventListener("click", function () {
-    modalEl.classList.remove("is-active");
+  modalDuplicate.classList.add("is-active");
+  dupOKBtn.addEventListener("click", function () {
+    modalDuplicate.classList.remove("is-active");
   });
 };
 

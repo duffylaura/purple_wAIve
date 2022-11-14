@@ -50,20 +50,33 @@
     <section class="modal-card-body custom-modal-body">
       <p id="user-check">username/email already taken</p>
       <div class="level-right">
-        <button class="button ok-btn custom-btn">OK</button>
+        <button id="dupOkBtn" class="button ok-btn custom-btn">OK</button>
       </div>
     </section>
   </div>
 </div>
 {{! modal that pops up if password or email are wrong }}
-<div class="modal">
+<div id="emailModal"class="modal">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head custom-modal-header"></header>
     <section class="modal-card-body custom-modal-body">
-      <p id="user-valid"></p>
+      <p id="user-valid">Please enter a valid email</p>
       <div class="level-right">
-        <button class="button ok-btn custom-btn">OK</button>
+        <button id="emailOKBtn"class="button ok-btn custom-btn">OK</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="PwModal"class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head custom-modal-header"></header>
+    <section class="modal-card-body custom-modal-body">
+      <p id="user-valid">Please enter a password with  at least one lowercase letter , one uppercase letter , one digit , one special character , and is at least eight characters long. </p>
+      <div class="level-right">
+        <button id ="PWmodalOK"class="button ok-btn custom-btn">OK</button>
       </div>
     </section>
   </div>
