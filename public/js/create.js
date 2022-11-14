@@ -11,9 +11,15 @@ let keyword = [];
 const createPostForm = async (e) => {
   e.preventDefault();
 
+  const loader = document.querySelector("#modalLoader");
+  loader.classList.add("is-active");
   const newTitle = postTitle.value;
   const newBody = postBody.value;
   const newStyle = postStyle.value;
+
+  setTimeout(function () {
+    loader.classList.remove("is-active");
+  }, 5000);
   console.log(newStyle);
 
   if (newTitle && newBody && newStyle && keyword) {
@@ -71,7 +77,7 @@ const createRedir = () => {
   modalEl.classList.add("is-active");
   modalTextEl.textContent = "Redirecting to your profile :)";
   modalOKBtn.addEventListener("click", function () {
-    modalEl.classList.remove("is-active")
+    modalEl.classList.remove("is-active");
     window.location.assign("/profile");
   });
 };
