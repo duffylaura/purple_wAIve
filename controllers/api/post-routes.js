@@ -44,14 +44,14 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: ["id", "title", "img_url", "body", "created_at", "keywords"],
+      attributes: ["id", "title", "img_url", "body", "created_at", "keywords", "user_id"],
       include: [
         {
           model: Comment,
           attributes: ["text", "user_id", "created_at"],
           include: {
             model: User,
-            attributes: ["username"],
+            attributes: ["id", "username"],
             // as: "comment_username",
           },
         },
