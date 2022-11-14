@@ -52,11 +52,14 @@
               <strong>{{comment.user.username}}</strong>
               <br />
               {{comment.text}}
-              <br /><small><a>Like</a>
+              {{!-- <br /><small><a>Like</a>
                 ·
                 <a>Reply</a>
-                ·
-                {{format_date comment.created_at}}</small>
+                · --}}
+                <br />
+                <div class="is-pulled-right">
+                  {{format_date comment.created_at}}</div>
+              </small>
             </p>
           </div>
         </div>
@@ -88,7 +91,7 @@
   <div class="modal-card">
     <header class="modal-card-head custom-modal-header"></header>
     <section class="modal-card-body custom-modal-body">
-      <p id="user-check">make a comment</p>
+      <p id="user-check">Error Try again</p>
       <div class="level-right">
         <button class="button ok-btn custom-btn">OK</button>
       </div>
