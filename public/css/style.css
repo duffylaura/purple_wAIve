@@ -23,6 +23,12 @@
   text-align: center;
 }
 
+.custom-tag {
+  color: rgba(193, 86, 247, 0.4);
+  background: rgba(235, 198, 254, 0.832);
+  filter: drop-shadow(0px 10px 10px #f2faa3);
+}
+
 .custom-card-create {
   padding: 20px;
   filter: drop-shadow(0px 10px 10px #ebc6fe);
@@ -92,16 +98,20 @@
   filter: drop-shadow(0px 10px 10px #f2faa3);
 }
 
+.lord-icon {
+  width: 50%;
+  margin: 0 auto;
+}
+
 @media screen and (min-width: 1023px) {
   .custom-image {
-    width: 512px;
-    height: 512px;
+    height: fit-content;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
 
   .custom-card {
     height: fit-content;
-    width: 512px;
+    width: fit-content;
     margin-top: 20px;
     margin-bottom: 20px;
     filter: drop-shadow(0px 10px 10px #ebc6fe);
@@ -117,7 +127,4 @@
   }
 }
 
-.lord-icon {
-  width: 50%;
-  margin: 0 auto;
-}
+
