@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post, Tag, Comment } = require("../../models");
+const { User, Post, Style, Comment } = require("../../models");
 const auth = require("../../utils/auth");
 
 //logging In
@@ -64,32 +64,35 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-//get User by username, protected and will redirect if not logged in
-// router.get('/:username', auth, async (req, res) => {
-//     try {
-//         const selectedUserName = req.params.username;
+// get User by username, protected and will redirect if not logged in
+router.get('/:id', auth, async (req, res) => {
+  try {
+    const selectedUserID = req.params.id;
 
-//         const userData = await User.findOne({
-//             include: [{
-//                 model: Post,
-//                 attributes: ["id", "title", "img_url", "body"]
-//             }, {
-//                 model: Tag,
-//                 attribute: ["id", "title"]
-//             }],
-//             where: { username: selectedUserName }
-//         });
+    const userData = await User.findOne({
+      where: { id: selectedUserID },
+      include: [{
+        model: Post,
+        attributes: ["id", "title", "img_url", "body", "created_at"],
+        include: {
+          model: Style,
+          attributes: ["style_type"],
+        }
+      }],
+    });
 
-//         const displayUserPosts = userData.get({ plain: true });
-//         console.log(displayUserPosts);
-//         res.render('otherprofile', {
-//             displayUserPosts
-//         });
-//         //catach error as usual
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// })
+    const displayUserPosts = userData.get({ plain: true });
+    console.log(displayUserPosts, " testing for Mari");
+    res.render('otherProfile', {
+      user: displayUserPosts,
+      loggedIn: req.session.loggedIn,
+    });
+    //catach error as usual
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
 
 //logout route
 router.post("/logout", (req, res) => {
