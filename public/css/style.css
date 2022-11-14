@@ -23,6 +23,11 @@
   text-align: center;
 }
 
+.profile-title {
+  color: black;
+  text-align: center;
+}
+
 .custom-tag {
   color: rgba(193, 86, 247, 0.4);
   background: rgba(235, 198, 254, 0.832);
@@ -120,6 +125,7 @@
   .custom-card-body {
     margin-left: 5px;
     margin-right: 5px;
+    margin-bottom: 5px; 
   }
 
   .custom-columns {
