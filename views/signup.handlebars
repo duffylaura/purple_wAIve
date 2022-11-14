@@ -42,7 +42,19 @@
   </form>
 </div>
 
-
+{{! modal that pops up if username or email are already taken }}
+<div id ="dupCheck"class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head custom-modal-header"></header>
+    <section class="modal-card-body custom-modal-body">
+      <p id="user-check">username/email already taken</p>
+      <div class="level-right">
+        <button class="button ok-btn custom-btn">OK</button>
+      </div>
+    </section>
+  </div>
+</div>
 {{! modal that pops up if password or email are wrong }}
 <div class="modal">
   <div class="modal-background"></div>

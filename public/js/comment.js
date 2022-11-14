@@ -1,8 +1,5 @@
 async function commentHandler(event) {
   event.preventDefault();
-  console.log(
-    "--------------------------------------------------------------------------------------------------------------------------------"
-  );
   const text = document.querySelector(".textarea").value;
   console.log(text);
 
@@ -21,12 +18,28 @@ async function commentHandler(event) {
       "Content-Type": "application/json",
     },
   });
-
-  if (response.ok) {
-    document.location.reload();
+  //if user inputs no text in the comment then un the validation function and modal popup
+  console.log(response.text);
+  if (!response.ok) {
+    console.log(await response.json());
+    commentValidation();
+    return;
   } else {
-    alert(response.statusText);
+    // If successful, reload location
+    document.location.reload();
   }
 }
+
+//function to display an error modal if the user inputts an incorrect password or email
+const commentValidation = () => {
+  const modalOKBtn = document.querySelector(".ok-btn");
+
+  const modalEl = document.querySelector(".modal");
+  modalEl.classList.add("is-active");
+
+  modalOKBtn.addEventListener("click", function () {
+    modalEl.classList.remove("is-active");
+  });
+};
 
 document.querySelector("#commentBtn").addEventListener("click", commentHandler);
