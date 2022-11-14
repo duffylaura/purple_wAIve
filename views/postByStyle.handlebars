@@ -1,26 +1,33 @@
-<section class="hero is-primary">
-    <div class="hero-body">
-        <p class="title">
-            Style: {{allPost.style_type}}
-        </p>
-        <img class="image is-512x512" src="/assets/logo-clear-background.png" alt="purple wAIve">
+<br>
+<div class = "columms custom-columns">
+  <div class = "column is-half is-offset-one-quarter"> 
+    <div class = "column is-half is-offset-one-quarter">
+      <div class="card custom-card"> 
+        <br>
+        <p class="title custom-title"> Style: {{allPost.style_type}} </p>
+        <img class="image" src="/assets/logo-white-background.png" alt="Logo">
+      </div>
     </div>
-</section>
-
-{{#if allPost.posts.length}}
-<div class="tile is-ancestor">
-    <div class="tile is-12">
-        {{#each allPost.posts as |post|}}
-        <article class="tile is-child box">
-            <p class="title">{{post.title}}</p>
-            <a href="/api/post/{{post.id}}"> <img class="image" src="{{post.img_url}}" alt="{{post.title}}"></a>
-            <p>{{post.body}} </p>
-            <p> by {{post.user.username }} on {{format_date post.created_at}} </p>
-        </article>
-        {{/each}}
-
-        {{else}}
-        <h1>No Post with this style yet</h1>
-        {{/if}}
-    </div>
+  </div>
 </div>
+{{#if allPost.posts.length}}
+    {{#each allPost.posts as |post|}}
+        <div class = "columms custom-columns">
+        <div class = "column is-half is-offset-one-quarter is-flex is-justify-content-center">
+            <div class="card custom-card">
+                <br> 
+                <div class = "card-body custom-card-body">
+                <p class="title is-5"> {{post.title}}</p>
+                <a href="/api/post/{{post.id}}"> <img class="image" src="{{post.img_url}}" alt="{{post.title}}"></a>
+                <p class="is-italic"> by {{post.user.username }} on {{format_date post.created_at}} </p>
+                <br>
+                <p> {{post.body}}</p>
+                <br>
+                </div>
+            </div>
+        </div>
+        </div>
+    {{/each}}
+{{else}}
+<p class="title custom-title">No Post with this style yet!</p>
+{{/if}}
