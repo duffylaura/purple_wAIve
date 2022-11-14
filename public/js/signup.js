@@ -28,8 +28,11 @@ const signupFormHandler = async (event) => {
         }),
         headers: { "Content-Type": "application/json" },
       });
-      //if response is a success then redirect to homepage
-      if (response.ok) {
+      //if response is a  not success then stop else ho to homepage
+      if (!response.ok) {
+        duplicateCheck();
+        return;
+      } else {
         document.location.replace("/");
       }
     }
@@ -79,16 +82,17 @@ const passwordValidation = () => {
 
 //function to check if the username already exists and if does give them a pop up modal saying that
 
-const usernameCheck = () => {
-  const usernameValue = document.querySelector("#signupUsername").value.trim();
+const duplicateCheck = () => {
+  const modalOKBtn = document.querySelector(".ok-btn");
+  const modalEl = document.querySelector("#dupCheck");
 
-  // if username is taken already, then unhide modal
+  // if email or password is already taken  then unhide modal
   modalEl.classList.add("is-active");
-  modalTextEl.textContent = "Username already taken. ";
   modalOKBtn.addEventListener("click", function () {
     modalEl.classList.remove("is-active");
   });
 };
+
 //when the user clicks the sign up button the signup function is triggered
 document
   .querySelector("#signupBtn")

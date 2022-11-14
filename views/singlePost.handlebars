@@ -1,15 +1,18 @@
-<br><br>
+<br /><br />
 <div class="columns">
   <div class="column">
-    <div class = "column is-11 is-offset-1">
-      <div class ="card single-post-image">
+    <div class="column is-11 is-offset-1">
+      <div class="card single-post-image">
         <img class="image" src="{{post.img_url}}" alt="{{post.title}}" />
       </div>
-      <br>
-      <br>
+      <br />
+      <br />
       <div class="is-flex is-justify-content-center">
-        <div class = "card socials-card">
-          <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-icon-color="#EBC6FE">
+        <div class="card socials-card">
+          <div
+            class="a2a_kit a2a_kit_size_32 a2a_default_style"
+            data-a2a-icon-color="#EBC6FE"
+          >
             <a class="a2a_button_facebook"></a>
             <a class="a2a_button_twitter"></a>
             <a class="a2a_button_whatsapp a2a_counter"></a>
@@ -22,51 +25,81 @@
 
   <div class="column">
 
-      <div class ="card comments-card">
-        <p class="title is-3"> {{post.title}}</p>
-        <p class="is-italic">created by {{post.user.username}} on {{format_date post.created_at}}</p>
-        <br>
-        <p> {{post.body}}</p>
-        <br>
-        <div class="keyword is-centered">
-          {{#each post.keywords as |Tag|}}
-            <span class="tag is-success is-light"> #{{Tag}}</span>
-          {{/each}}
-        </div>
-      </div>
-      <br>
-      <br>
-      <div class ="card comments-card">
-        <p class = "title is-3 is-right-justified"> comments </p>
-          {{#each post.comments as |comment|}}
-            <article class="media">
-              <figure class="media-right"></figure>
-                <div class="media-content">
-                  <div class="content">
-                    <p> <strong>{{comment.user.username}}</strong> <br /> {{comment.text}} <br /><small><a>Like</a> · <a>Reply</a> · {{format_date comment.created_at}}</small></p>
-                  </div>
-                </div>
-            </article>
-          {{/each}}
-
-          {{#if loggedIn}}
-            <article class="media">
-              <figure class="media-right"></figure>
-                <div class="media-content">
-                  <div class="field">
-                    <p class="control"><textarea class="textarea" placeholder="Add a comment..."></textarea></p>
-                  </div>
-                  <div class="field">
-                    <p class="control"> <button id="commentBtn" class="button green-glow is-right-justified">Post comment.</button></p>
-                  </div>
-                </div>
-            </article>
-          {{/if}}
+    <div class="card comments-card">
+      <p class="title is-3"> {{post.title}}</p>
+      <p class="is-italic">created by
+        {{post.user.username}}
+        on
+        {{format_date post.created_at}}</p>
+      <br />
+      <p> {{post.body}}</p>
+      <br />
+      <div class="keyword is-centered">
+        {{#each post.keywords as |Tag|}}
+          <span class="tag is-success is-light"> #{{Tag}}</span>
+        {{/each}}
       </div>
     </div>
+    <br />
+    <br />
+    <div class="card comments-card">
+      <p class="title is-3 is-right-justified"> comments </p>
+      {{#each post.comments as |comment|}}
+        <article class="media">
+          <figure class="media-right"></figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>{{comment.user.username}}</strong>
+                <br />
+                {{comment.text}}
+                <br /><small><a>Like</a>
+                  ·
+                  <a>Reply</a>
+                  ·
+                  {{format_date comment.created_at}}</small></p>
+            </div>
+          </div>
+        </article>
+      {{/each}}
+
+      {{#if loggedIn}}
+        <article class="media">
+          <figure class="media-right"></figure>
+          <div class="media-content">
+            <div class="field">
+              <p class="control"><textarea
+                  class="textarea"
+                  placeholder="Add a comment..."
+                ></textarea></p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <button
+                  id="commentBtn"
+                  class="button green-glow is-right-justified"
+                >Post comment.</button></p>
+            </div>
+          </div>
+        </article>
+      {{/if}}
+    </div>
+  </div>
 </div>
 
-
+{{! modal that pops up if username or email are already taken }}
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head custom-modal-header"></header>
+    <section class="modal-card-body custom-modal-body">
+      <p id="user-check">make a comment</p>
+      <div class="level-right">
+        <button class="button ok-btn custom-btn">OK</button>
+      </div>
+    </section>
+  </div>
+</div>
 {{#if loggedIn}}
   <script src="/js/comment.js"></script>
 {{/if}}
