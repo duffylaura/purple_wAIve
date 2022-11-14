@@ -37,6 +37,7 @@ router.delete("/:id", auth, async (req, res) => {
     const DeleteCommentData = await Comment.destroy({
       where: {
         id: req.params.id,
+        user_id: req.session.user_id,
       },
     });
     if (!DeleteCommentData) {
