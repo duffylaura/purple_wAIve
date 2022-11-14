@@ -1,4 +1,4 @@
-<br /><br />
+{{!-- <br /><br />
 <div class="px-6">
   <div class="tile is-ancestor">
     <div class="tile is-vertical">
@@ -32,6 +32,44 @@
       </div>
     </div>
   </div>
+</div> --}}
+
+
+<br /><br />
+<div class="columns">
+  <div class="column">
+    <div class="column is-11 is-offset-1">
+      <div class="card single-post-image">
+        <img class="image" src="{{editPostData.img_url}}" alt="{{editPostData.title}}" />
+      </div>
+      <br />
+      <br />
+    </div>
+  </div>
+
+  <div class="column">
+
+    <div class="card comments-card">
+      <article class="tile is-child">
+        <form>
+          <p class="title is-3"><textarea id="edit-title"> {{editPostData.title}}</textarea></p>
+          <p> <textarea id="edit-body">{{editPostData.body}}</textarea></p>
+      </article>
+      <div class="buttons">
+        <button id="edit-button" class="button is-link">Edit</button>
+        <button id="delete-button" class="button is-danger">Delete</button>
+      </div>
+      </form>
+      <br />
+      <div class="keyword is-centered">
+        {{#each editPostData.keywords as |Tag|}}
+        <span class="tag is-success is-light"> #{{Tag}}</span>
+        {{/each}}
+      </div>
+    </div>
+
+  </div>
+</div>
 </div>
 
 

@@ -84,37 +84,44 @@
 {{!-- modal for redirect --}}
 <div class="modal" id="redirect">
     <div class="modal-background"></div>
+    <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+    <lord-icon class="is-centered" src="https://cdn.lordicon.com/ommvariz.json" trigger="loop"
+        colors="primary:#f4f9ad,secondary:#ebc6fe,tertiary:#646e78,quaternary:#3a3347,quinary:#ebe6ef" stroke="100"
+        style="width:250px;height:250px">
+    </lord-icon>
+    <br />
+    <div class="keyword">
+        <h2 id="redirMsg"></h2>
+    </div>
+    <br />
+    <button class="button ok-btn custom-button" id="redirBtn">click here to redirect</button>
+    <div class="modal-content">
+    </div>
+</div>
+
+{{!-- modal for loader --}}
+<div class="modal" id="modalLoader">
+    <div class="modal-background"></div>
+    <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+    <lord-icon src="https://cdn.lordicon.com/qshigsah.json" trigger="loop"
+        colors="primary:#3a3347,secondary:#646e78,tertiary:#f4f9ad,quaternary:#a866ee,quinary:#ebc6fe" scale="55"
+        axis-y="35" style="width:250px;height:250px">
+    </lord-icon>
+    <div class="modal-content"></div>
+</div>
+
+<div id="modalExplicit" class="modal">
+    <div class="modal-background"></div>
     <div class="modal-card">
         <header class="modal-card-head custom-modal-header"></header>
         <section class="modal-card-body custom-modal-body">
-            <p id="redirMsg"></p>
+            <p>You entered something that DALLE2's AI considers explicit and the robot won't make an image. Please
+                remove any keywords that could be considered explicit and retry</p>
             <div class="level-right">
-                <button class="button ok-btn custom-btn" id="redirBtn">click here to redirect</button>
+                <button id="ExpOKBtn" class="button ok-btn custom-btn">OK</button>
             </div>
         </section>
     </div>
 </div>
 
-    {{!-- modal for loader --}}
-<div class="modal" id="modalLoader">
-    <div class="modal-background"></div>
-        <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
-        <lord-icon src="https://cdn.lordicon.com/kvsszuvz.json" trigger="loop"
-            colors="primary:#ebc6fe,secondary:#08a88a" stroke="80" scale="80" style="width:150px;height:150px">
-        </lord-icon>
-</div>
-
-<div id="modalExplicit"class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head custom-modal-header"></header>
-    <section class="modal-card-body custom-modal-body">
-      <p >You entered something that DALLE2's AI considers explicit and the robot won't make an image. Please remove any keywords that could be considered explicit and retry</p>
-      <div class="level-right">
-        <button id ="ExpOKBtn"class="button ok-btn custom-btn">OK</button>
-      </div>
-    </section>
-  </div>
-</div>
-  
 <script src=" /js/create.js"></script>
