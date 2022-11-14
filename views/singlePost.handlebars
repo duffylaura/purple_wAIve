@@ -62,6 +62,7 @@
             </p>
           </div>
         </div>
+         <button id="deleteCommentBtn" data-attribute="{{comment.id}}" class="button is-link is-light is-pulled-left is-small ">Delete</button>
       </article>
       {{/each}}
 
@@ -98,5 +99,6 @@
   </div>
 </div>
 {{#if loggedIn}}
+<script src="/js/delete-comment.js"></script>
 <script src="/js/comment.js"></script>
 {{/if}}
