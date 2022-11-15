@@ -21,7 +21,7 @@ Did you listen to a song today that made you feel a certain way, but want to exp
 - [Questions](#Questions)
 - [License](#License)
 
- [<img src="./public/assets/188-microphone-recording-lineal.gif" alt='lord-icon' height='90'>]()
+ [<img src="./public/assets/188-microphone-recording-lineal.gif" alt='lord-icon' height='90' width='90'>]()
 
 
 ## Features
@@ -48,7 +48,7 @@ To create a new image using the DALLE2 AI system the logged in user can go to ou
 
 First, download the dependencies by running "npm install", next go into mysql shell and import the schema files by running "source db/schema.sql" and then exit the shell. Run "npm run seed" in the terminal and next go to the command line in the folder that holds your server.js file. Finally, type "node server.js" and click enter. Click on the URL in the terminal to open the webpage.To start posting, reading and adding comments, you will need to be logged in. Sign-up if you haven't already and make your first Blogspot post and connect with the community!
 
-[<img src="./public/assets/1062-disco-ball-flat.gif" alt='lord-icon' height='150'>]()
+[<img src="./public/assets/1062-disco-ball-flat.gif" alt='lord-icon' height='150' width='150' >]()
 
 ## License
 
