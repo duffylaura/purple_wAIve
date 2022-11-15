@@ -44,6 +44,14 @@ const hbs = exphbs.create({ helpers });
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
+//cloudinary
+var cloudinary = require('cloudinary');
+cloudinary.config({
+    cloud_name: 'dbjhly3lm',
+    api_key: '715498181786272',
+    api_secret: 'j8EFe2UdyYyud04oilZC7ex0xEw'
+});
+
 //middleware to be used
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

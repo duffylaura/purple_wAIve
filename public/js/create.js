@@ -19,7 +19,7 @@ const createPostForm = async (e) => {
 
   setTimeout(function () {
     loader.classList.remove("is-active");
-  }, 5000);
+  }, 8000);
   console.log(newStyle);
 
   if (newTitle && newBody && newStyle && keyword) {
