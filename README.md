@@ -81,9 +81,8 @@ Licensed under the MIT license.[License details here](https://opensource.org/lic
 
 **Laura Duffy**
 
-- [GitHub]()
-- [Linkedin]()
-- [Portfolio]()
+[<img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/github_original_wordmark_logo_icon_146506.png" alt='github' height='40'>](https://github.com/duffylaura)
+[<img srch="https://cdn.icon-icons.com/icons2/693/PNG/512/LinkedIn_Rounded_Solid_icon-icons.com_61559.png" alt="linkedin" height='40'>](https://www.linkedin.com/in/laura-duffy-a14061251/)
 
 **Mari Ma**
 
