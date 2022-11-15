@@ -46,7 +46,7 @@ const loginValidation = () => {
 document.querySelector("#loginBtn").addEventListener("click", loginFormHandler);
 
 
-//function to display an error modal if the user inputts an incorrect password or email
+//function to display an error modal if the user inputt an incorrect password or email
 const loginRedir = () => {
   const modalOKBtn = document.querySelector("#redirBtn");
   const modalTextEl = document.querySelector("#redirMsg");
