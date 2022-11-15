@@ -142,11 +142,8 @@ router.post("/", auth, async (req, res) => {
     // downloading image from url since expiring 1 hr
 
     // Download Image Helper Function
-    var downloadImageFromURL = (url, filename, callback) => {
-      var client = http;
-      if (url.toString().indexOf("https") === 0) {
-        client = https;
-      }
+    const downloadImageFromURL = (url, filename, callback) => {
+      var client = https;
 
       client
         .request(url, function (response) {
@@ -171,6 +168,7 @@ router.post("/", auth, async (req, res) => {
             //     .catch(err => {
             //       console.log(err);
             //     });
+            //cloudinary upload once we downloaded the file
             cloudinary.v2.uploader
               .upload(`./public/assets/dalle/${filename}`, {
                 public_id: `dalle/${filename}`
@@ -178,6 +176,14 @@ router.post("/", auth, async (req, res) => {
               .then(result => {
                 console.log(result.url);
                 cloud_url = result.url;
+                const PostData = Post.create({
+                  title: req.body.newTitle,
+                  img_url: `${cloud_url}`,
+                  keywords: storeKeyword,
+                  body: req.body.newBody,
+                  style_id: styleID.id,
+                  user_id: req.session.user_id,
+                });
               });
 
           });
@@ -211,17 +217,17 @@ router.post("/", auth, async (req, res) => {
     //for now
     // const image_url = "https://via.placeholder.com/512";
 
-    //creating post content to store in db
-    const PostData = await Post.create({
-      title: req.body.newTitle,
-      img_url: `${cloud_url}`,
-      keywords: storeKeyword,
-      body: req.body.newBody,
-      style_id: styleID.id,
-      user_id: req.session.user_id,
-    });
+    //creating post content to store in db //moved up to make sure we have the url before storing
+    // const PostData = await Post.create({
+    //   title: req.body.newTitle,
+    //   img_url: `${cloud_url}`,
+    //   keywords: storeKeyword,
+    //   body: req.body.newBody,
+    //   style_id: styleID.id,
+    //   user_id: req.session.user_id,
+    // });
 
-    res.json(PostData);
+    // res.json(PostData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
