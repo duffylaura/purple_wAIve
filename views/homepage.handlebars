@@ -6,19 +6,19 @@
 {{#each post as |Post|}}
 <div class="columms custom-columns">
   <div class="column is-half is-offset-one-quarter is-flex is-justify-content-center">
-      <div class="card custom-card">
-        <br>
-        <div class="card-body custom-card-body">
-          <p class="title is-5"> {{Post.title}}</p>
-          <a href="/api/post/{{Post.id}}"> <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}"></a>
-          <p class="is-italic"> created by <span class="custom-tag mt-2 is-medium">
+    <div class="card custom-card">
+      <br>
+      <div class="card-body custom-card-body">
+        <p class="title is-5"> {{Post.title}}</p>
+        <a href="/api/post/{{Post.id}}"> <img class="image" src="{{Post.img_url}}" alt="{{Post.title}}"></a>
+        <p class="is-italic"> created by <span class="custom-tag mt-2 is-medium">
             <a href="/api/user/{{Post.user_id}}">{{Post.user.username}}</a></span> on
-            {{format_date Post.created_at}} </p>
-          <br>
-          <p> {{Post.body}}</p>
-          <br>
-        </div>
+          {{format_date Post.created_at}} </p>
+        <br>
+        <p> {{Post.body}}</p>
+        <br>
       </div>
+    </div>
   </div>
 </div>
 {{/each}}
