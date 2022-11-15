@@ -16,6 +16,13 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+//dropbox
+const { Dropbox } = require('dropbox');
+const dbx = new Dropbox({ accessToken: process.env.DROPBOX })
+
+//cloudinary
+var cloudinary = require('cloudinary')
+
 router.get("/", async (req, res) => {
   console.log("======================");
   try {
@@ -98,6 +105,7 @@ router.get("/:id", async (req, res) => {
 
 //   post router
 router.post("/", auth, async (req, res) => {
+  let cloud_url;
   try {
     const parsedKeyword = req.body.keyword.join(" ");
     const storeKeyword = req.body.keyword.join(", ");
@@ -131,14 +139,11 @@ router.post("/", auth, async (req, res) => {
       image_url + "<--for funsies just incase error and we lost the image"
     );
 
-    //downloading image from url since expiring 1 hr
+    // downloading image from url since expiring 1 hr
 
     // Download Image Helper Function
-    var downloadImageFromURL = (url, filename, callback) => {
-      var client = http;
-      if (url.toString().indexOf("https") === 0) {
-        client = https;
-      }
+    const downloadImageFromURL = (url, filename, callback) => {
+      var client = https;
 
       client
         .request(url, function (response) {
@@ -147,31 +152,82 @@ router.post("/", auth, async (req, res) => {
           response.on("data", function (chunk) {
             data.push(chunk);
           });
+          // console.log(data)
+          // console.log(data.data);
+          // console.log(data.read());
 
           response.on("end", function () {
             fs.writeFileSync(`./public/assets/dalle/${filename}`, data.read());
+            //   dbx.filesUpload({
+            //     path: `/dalle/${filename}`,
+            //     contents: data.data
+            //   })
+            //     .then(response => {
+            //       console.log(response);
+            //     })
+            //     .catch(err => {
+            //       console.log(err);
+            //     });
+            //cloudinary upload once we downloaded the file
+            cloudinary.v2.uploader
+              .upload(`./public/assets/dalle/${filename}`, {
+                public_id: `dalle/${filename}`
+              })
+              .then(result => {
+                console.log(result.url);
+                cloud_url = result.url;
+                const PostData = Post.create({
+                  title: req.body.newTitle,
+                  img_url: `${cloud_url}`,
+                  keywords: storeKeyword,
+                  body: req.body.newBody,
+                  style_id: styleID.id,
+                  user_id: req.session.user_id,
+                });
+              });
+
           });
         })
         .end();
     };
 
-    // Calling Function to Download
-    downloadImageFromURL(image_url, `${filename}.png`);
+    // // Calling Function to Download
+    downloadImageFromURL(image_url, `${filename}.png`)
+
+    //after image downloaded on heroku instance
+    // //dropbox time
+    // fs.readFile(`./public/assets/dalle/${filename}.png`, (err, image) => {
+    //   if (err) {
+    //     console.log('ERROR', err);
+    //   };
+    //   //after reading, upload
+    //   dbx.filesUpload({
+    //     path: `/dalle/${filename}.png`,
+    //     contents: image
+    //   })
+    //     .then(response => {
+    //       console.log(response);
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     });
+    // });
+
 
     //for now
     // const image_url = "https://via.placeholder.com/512";
 
-    //creating post content to store in db
-    const PostData = await Post.create({
-      title: req.body.newTitle,
-      img_url: `/assets/dalle/${filename}.png`,
-      keywords: storeKeyword,
-      body: req.body.newBody,
-      style_id: styleID.id,
-      user_id: req.session.user_id,
-    });
+    //creating post content to store in db //moved up to make sure we have the url before storing
+    // const PostData = await Post.create({
+    //   title: req.body.newTitle,
+    //   img_url: `${cloud_url}`,
+    //   keywords: storeKeyword,
+    //   body: req.body.newBody,
+    //   style_id: styleID.id,
+    //   user_id: req.session.user_id,
+    // });
 
-    res.json(PostData);
+    // res.json(PostData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
