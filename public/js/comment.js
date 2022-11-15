@@ -30,7 +30,7 @@ async function commentHandler(event) {
   }
 }
 
-//function to display an error modal if the user inputts an incorrect password or email
+//function to display an error modal if the user tries to submit a comment with no body
 const commentValidation = () => {
   const modalOKBtn = document.querySelector(".ok-btn");
 

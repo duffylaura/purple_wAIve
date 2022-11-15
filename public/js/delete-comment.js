@@ -23,7 +23,7 @@ async function deleteCommentHandler(event) {
     // document.location.replace("/profile");
     document.location.reload();
   } else {
-    alert("delete failed");
+    deleteValidation();
   }
 }
 
@@ -41,7 +41,15 @@ function deleteBtnArray() {
 }
 
 deleteBtnArray();
-// const myNodelist = document.querySelectorAll("p");
-// for (let i = 0; i < myNodelist.length; i++) {
-//   myNodelist[i].style.color = "red";
-// }
+
+//function to display an error modal if the user tries to submit a comment with no body
+const deleteValidation = () => {
+  const deleteModalOKBtn = document.querySelector("#deleteModalOK");
+
+  const deleteModalEl = document.querySelector("#deleteModal");
+  deleteModalEl.classList.add("is-active");
+
+  deleteModalOKBtn.addEventListener("click", function () {
+    deleteModalEl.classList.remove("is-active");
+  });
+};
