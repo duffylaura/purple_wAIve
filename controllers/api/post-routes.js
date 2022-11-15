@@ -227,7 +227,7 @@ router.post("/", auth, async (req, res) => {
     //   user_id: req.session.user_id,
     // });
 
-    // res.json(PostData);
+    res.json("post created");
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
