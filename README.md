@@ -103,10 +103,10 @@ Licensed under the MIT license.[License details here](https://opensource.org/lic
 
 ## Code Snippets 
 We utilized the Dalle2.0 API offered by openai:
-[<img src="./public/assets/codeSnip1" alt='openai snippet' >]()
+[<img src="./public/assets/codeSnip1.png" alt='openai snippet' >]()
 
 To get around the epheremal filesystem of heroku, we utilized cloudinary to upload the image saved to a cloud storage for persistant storage:
-[<img src="./public/assets/codeSnip2" alt='cloudinary snippet'  >]()
+[<img src="./public/assets/codeSnip2.png" alt='cloudinary snippet'  >]()
 
 ## Authors
 
