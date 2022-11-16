@@ -26,12 +26,14 @@ Did you listen to a song today that made you feel a certain way, but want to exp
 
 First, download the dependencies by running "npm install", next go into mysql shell and import the schema files by running "source db/schema.sql" and then exit the shell. Run "npm run seed" in the terminal and next go to the command line in the folder that holds your server.js file. Finally, type "node server.js" and click enter. Click on the URL in the terminal to open the webpage.To start posting, reading and adding comments, you will need to be logged in. Sign-up if you haven't already and make your first Blogspot post and connect with the community!
 
-[<img src="./public/assets/1062-disco-ball-flat.gif" alt='lord-icon' height='150' width='150' >]()
 
 We also have a dummy account set up if you'd like to use that to login & checkout our features: 
-username: dummyAccount
-email: dummyAccount@gmail.com
-password: dummyAccount1!
+
+> username: dummyAccount
+
+> email: dummyAccount@gmail.com
+
+> password: dummyAccount1!
 
 
 ## Features
