@@ -14,7 +14,6 @@ Did you listen to a song today that made you feel a certain way, but want to exp
 - [Description](#Description)
 - [Usage](#Usage)
 - [Features](#Features)
-- [Usage](#Built-With)
 - [Code-Snippets](#Code-Snippets)
 - [Authors](#Authors)
 - [Contributing-Guidlines](#Contributing-Guidlines)
@@ -23,6 +22,16 @@ Did you listen to a song today that made you feel a certain way, but want to exp
 
  [<img src="./public/assets/188-microphone-recording-lineal.gif" alt='lord-icon' height='90' width='90'>]()
 
+## Usage
+
+First, download the dependencies by running "npm install", next go into mysql shell and import the schema files by running "source db/schema.sql" and then exit the shell. Run "npm run seed" in the terminal and next go to the command line in the folder that holds your server.js file. Finally, type "node server.js" and click enter. Click on the URL in the terminal to open the webpage.To start posting, reading and adding comments, you will need to be logged in. Sign-up if you haven't already and make your first Blogspot post and connect with the community!
+
+[<img src="./public/assets/1062-disco-ball-flat.gif" alt='lord-icon' height='150' width='150' >]()
+
+We also have a dummy account set up if you'd like to use that to login & checkout our features: 
+username: dummyAccount
+email: dummyAccount@gmail.com
+password: dummyAccount1!
 
 ## Features
 
@@ -44,11 +53,6 @@ Logged in users can create new art by clicking on the create tab in the navbar a
 
 To create a new image using the DALLE2 AI system the logged in user can go to our create page
 
-## Usage
-
-First, download the dependencies by running "npm install", next go into mysql shell and import the schema files by running "source db/schema.sql" and then exit the shell. Run "npm run seed" in the terminal and next go to the command line in the folder that holds your server.js file. Finally, type "node server.js" and click enter. Click on the URL in the terminal to open the webpage.To start posting, reading and adding comments, you will need to be logged in. Sign-up if you haven't already and make your first Blogspot post and connect with the community!
-
-[<img src="./public/assets/1062-disco-ball-flat.gif" alt='lord-icon' height='150' width='150' >]()
 
 ## License
 
@@ -71,6 +75,8 @@ Licensed under the MIT license.[License details here](https://opensource.org/lic
 - dotenv
 - expression-session
 
+## Code Snippets 
+
 ## Authors
 
 **Chris Gibson**
@@ -82,7 +88,7 @@ Licensed under the MIT license.[License details here](https://opensource.org/lic
 **Laura Duffy**
 
 [<img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/github_original_wordmark_logo_icon_146506.png" alt='github' height='40'>](https://github.com/duffylaura)
-[<img srch="https://cdn.icon-icons.com/icons2/693/PNG/512/LinkedIn_Rounded_Solid_icon-icons.com_61559.png" alt="linkedin" height='40'>](https://www.linkedin.com/in/laura-duffy-a14061251/)
+[<img src="https://cdn.icon-icons.com/icons2/693/PNG/512/LinkedIn_Rounded_Solid_icon-icons.com_61559.png" alt="linkedin" height='40'>](https://www.linkedin.com/in/laura-duffy-a14061251/)
 
 **Mari Ma**
 
@@ -99,7 +105,7 @@ Licensed under the MIT license.[License details here](https://opensource.org/lic
 
 ## Contributing Guidlines
 
-If you would like to contribute to this app, please contact me and we can discuss further.
+If you would like to contribute to this app, please contact Laura at lauraduffy700@gmail.com and we can discuss further.
 
 ## Questions
 
