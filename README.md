@@ -1,3 +1,4 @@
+
 # [<img src="./public/assets/333-loader-4-3.gif" alt='lord-icon' height='40'>](https://lordicon.com/)Purple wAIve[<img src="./public/assets/333-loader-4-8.gif" alt='lord-icon' height='40'>](https://lordicon.com/)
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
@@ -19,46 +20,30 @@ Did you listen to a song today that made you feel a certain way, but want to exp
 - [Questions](#Questions)
 - [License](#License)
 
-
  [<img src="./public/assets/188-microphone-recording-lineal.gif" alt='lord-icon' height='90' width='90'>]()
 
 ## Usage
 
-First, download the dependencies by running "npm install", next go into mysql shell and import the schema files by running "source db/schema.sql" and then exit the shell. Run "npm run seed" in the terminal and next go to the command line in the folder that holds your server.js file. Finally, type "node server.js" and click enter. Click on the URL in the terminal to open the webpage.To start posting, reading and adding comments, you will need to be logged in. Sign-up if you haven't already and make your first Blogspot post and connect with the community!
+First, download the dependencies by running "npm install", next go into mysql shell and import the schema files by running "source db/schema.sql" and then exit the shell. Run "npm run seed" in the terminal and next go to the command line in the folder that holds your server.js file. Finally, type "node server.js" and click enter. Click on the URL in the terminal to open the webpage.To start posting, reading and adding comments, you will need to be logged in. 
 
+[<img src="./public/assets/1062-disco-ball-flat.gif" alt='lord-icon' height='150' width='150' >]()
 
 We also have a dummy account set up if you'd like to use that to login & checkout our features: 
-
-> username: dummyAccount
-
-> email: dummyAccount@gmail.com
-
-> password: dummyAccount1!
-
+username: dummyAccount
+email: dummyAccount@gmail.com
+password: dummyAccount1!
 
 ## Features
 
-# Homepage
+# user validations
 
-this is what the homepage will look like to some one eho is no logged. They can see the most recent post but cannot open it, they will to sign in.
-
-![gif of homepage](public/assets/GIFs/introduction.gif)
-
-# user login/signup and logout
-
-so we have a validated signup and login system in place so that user who sign up can see all posts, comment on othe posts and create their own posts.
-![gif](public/assets/GIFs/signing-up.gif)
 Purple wAIve has a ton of user validation to ensure that the user experience is as pleasant as can be. Below we have 3 validations for the signup page, ensuring that the user input a strong password, correct email and an original username.
 
-![Gif of signup validations](public/assets/GIFs/user-validation.gif)
+![Gif of signup validations](/public/assets/video%20of%20signup%20validations.gif)
 
 Below is another example of validations we have. If the user is not logged in, then they will not be able to create an image or interact with posts.This helps ensure that we can get a dedicated user base.
 
-# session storage
-
-we used expression session to store user data into cookie, so that the logged in status peresists
-
-![gif](public/assets/GIFs/session-storage.gif)
+![Gif of logedin/out validations](/public/assets/gif%20of%20loggedin%20valids.gif)
 
 # create new art
 
@@ -66,18 +51,7 @@ Logged in users can create new art by clicking on the create tab in the navbar a
 
 ![Gif of create page](/public/assets/gif%20of%20create%20page.gif)
 
-# Share your favorite post to twiter and reddit!
-
-![gif](public/assets/GIFs/socials.gif)
-
-# Engange witha community of music lovers by leaving them a comment on their post
-
-![gif](public/assets/GIFs/engage-comment.gif)
-
 To create a new image using the DALLE2 AI system the logged in user can go to our create page
-
-
-[<img src="./public/assets/1062-disco-ball-flat.gif" alt='lord-icon' height='150' width='150' >]()
 
 
 ## License
@@ -102,11 +76,6 @@ Licensed under the MIT license.[License details here](https://opensource.org/lic
 - expression-session
 
 ## Code Snippets 
-We utilized the Dalle2.0 API offered by openai:
-[<img src="./public/assets/codeSnip1.png" alt='openai snippet' >]()
-
-To get around the epheremal filesystem of heroku, we utilized cloudinary to upload the image saved to a cloud storage for persistant storage:
-[<img src="./public/assets/codeSnip2.png" alt='cloudinary snippet'  >]()
 
 ## Authors
 
@@ -127,12 +96,6 @@ To get around the epheremal filesystem of heroku, we utilized cloudinary to uplo
 [<img src="https://cdn.icon-icons.com/icons2/2351/PNG/512/logo_linkedin_icon_143191.png" alt='linkedin' height='40'>](https://www.linkedin.com/in/mari-ma-70771585/)
 
 [Icon credit @ Anton Kalashnyk](https://icon-icons.com/users/14quJ7FM9cYdQZHidnZoM/icon-sets/)
-
-**Akash Chanara**
-
-- [GitHub](https://github.com/akash2040)
-- [Linkedin](https://www.linkedin.com/in/akash-chanara-087b531ab)
-- [Portfolio](https://akash2040.github.io/portfolio-akash/)
 
 ## Contributing Guidlines
 
