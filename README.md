@@ -24,7 +24,7 @@ Did you listen to a song today that made you feel a certain way, but want to exp
 
 ## Usage
 
-First, download the dependencies by running "npm install", next go into mysql shell and import the schema files by running "source db/schema.sql" and then exit the shell. Run "npm run seed" in the terminal and next go to the command line in the folder that holds your server.js file. Finally, type "node server.js" and click enter. Click on the URL in the terminal to open the webpage.To start posting, reading and adding comments, you will need to be logged in. 
+First, download the dependencies by running "npm install", next go into mysql shell and import the schema files by running "source db/schema.sql" and then exit the shell. Run "npm run seed" in the terminal and next go to the command line in the folder that holds your server.js file. Finally, type "node server.js" and click enter. Click on the URL in the terminal to open the webpage.To start posting, reading and adding comments, you will need to be logged in. Sign-up if you haven't already and make your first Blogspot post and connect with the community!
 
 [<img src="./public/assets/1062-disco-ball-flat.gif" alt='lord-icon' height='150' width='150' >]()
 
@@ -96,6 +96,12 @@ Licensed under the MIT license.[License details here](https://opensource.org/lic
 [<img src="https://cdn.icon-icons.com/icons2/2351/PNG/512/logo_linkedin_icon_143191.png" alt='linkedin' height='40'>](https://www.linkedin.com/in/mari-ma-70771585/)
 
 [Icon credit @ Anton Kalashnyk](https://icon-icons.com/users/14quJ7FM9cYdQZHidnZoM/icon-sets/)
+
+**Akash Chanara**
+
+- [GitHub](https://github.com/akash2040)
+- [Linkedin](https://www.linkedin.com/in/akash-chanara-087b531ab)
+- [Portfolio](https://akash2040.github.io/portfolio-akash/)
 
 ## Contributing Guidlines
 
